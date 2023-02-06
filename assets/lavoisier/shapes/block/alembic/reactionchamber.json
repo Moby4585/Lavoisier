@@ -1,0 +1,116 @@
+{
+	"editor": {
+		"allAngles": false,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+		"alambic_plaque": "block/alembic/alembic_chamber"
+	},
+	"elements": [
+		{
+			"name": "Cube1",
+			"from": [ 4.0, 0.0, 4.0 ],
+			"to": [ 12.0, 13.0, 12.0 ],
+			"rotationOrigin": [ 4.0, 0.0, 4.0 ],
+			"faces": {
+				"north": {
+					"texture": "#alambic_plaque",
+					"uv": [ 0.0, 3.0, 8.0, 16.0 ]
+				},
+				"east": {
+					"texture": "#alambic_plaque",
+					"uv": [ 0.0, 3.0, 8.0, 16.0 ]
+				},
+				"south": {
+					"texture": "#alambic_plaque",
+					"uv": [ 0.0, 3.0, 8.0, 16.0 ]
+				},
+				"west": {
+					"texture": "#alambic_plaque",
+					"uv": [ 0.0, 3.0, 8.0, 16.0 ]
+				},
+				"up": {
+					"texture": "#alambic_plaque",
+					"uv": [ 8.0, 8.0, 16.0, 16.0 ]
+				},
+				"down": {
+					"texture": "#alambic_plaque",
+					"uv": [ 8.0, 8.0, 16.0, 16.0 ]
+				}
+			}
+		},
+		{
+			"name": "Cube2",
+			"from": [ 7.0, 1.4, 11.2 ],
+			"to": [ 17.5, 2.4, 12.2 ],
+			"rotationOrigin": [ 7.5, 1.4, 12.2 ],
+			"rotationY": -90.0,
+			"rotationZ": 67.5,
+			"faces": {
+				"north": {
+					"texture": "#alambic_plaque",
+					"uv": [ 0.0, 0.0, 10.5, 1.0 ]
+				},
+				"east": {
+					"texture": "#alambic_plaque",
+					"uv": [ 0.0, 0.0, 1.0, 1.0 ]
+				},
+				"south": {
+					"texture": "#alambic_plaque",
+					"uv": [ 0.0, 0.0, 10.5, 1.0 ]
+				},
+				"west": {
+					"texture": "#alambic_plaque",
+					"uv": [ 0.0, 0.0, 1.0, 1.0 ]
+				},
+				"up": {
+					"texture": "#alambic_plaque",
+					"uv": [ 0.0, 0.0, 10.5, 1.0 ]
+				},
+				"down": {
+					"texture": "#alambic_plaque",
+					"uv": [ 0.0, 0.0, 10.5, 1.0 ]
+				}
+			},
+			"children": [
+				{
+					"name": "Cube4",
+					"from": [ 9.6, 0.4, 0.001 ],
+					"to": [ 18.1, 1.4, 1.001 ],
+					"rotationOrigin": [ 9.6, 0.4, 0.0 ],
+					"rotationZ": -67.5,
+					"faces": {
+						"north": {
+							"texture": "#alambic_plaque",
+							"uv": [ 0.0, 0.0, 8.5, 1.0 ]
+						},
+						"east": {
+							"texture": "#alambic_plaque",
+							"uv": [ 0.0, 0.0, 1.0, 1.0 ]
+						},
+						"south": {
+							"texture": "#alambic_plaque",
+							"uv": [ 0.0, 0.0, 8.5, 1.0 ]
+						},
+						"west": {
+							"texture": "#alambic_plaque",
+							"uv": [ 0.0, 0.0, 1.0, 1.0 ]
+						},
+						"up": {
+							"texture": "#alambic_plaque",
+							"uv": [ 0.0, 0.0, 8.5, 1.0 ]
+						},
+						"down": {
+							"texture": "#alambic_plaque",
+							"uv": [ 0.0, 0.0, 8.5, 1.0 ]
+						}
+					}
+				}
+			]
+		}
+	]
+}

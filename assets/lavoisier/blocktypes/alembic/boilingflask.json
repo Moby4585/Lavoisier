@@ -1,0 +1,48 @@
+{
+  "code": "alembicboilingflask",
+  "class": "AlembicBoilingFlask",
+  "entityClass": "AlembicBoilingFlaskEntity",
+  "attributes": {
+    "liquidContainerProps": {
+      "capacityLitres": 3
+    }
+  },
+  "behaviors": [
+    { "name": "Unstable" }
+  ],
+  "creativeinventory": {
+    "general": [ "*" ],
+    "chemistry": [ "*" ]
+  },
+  "blockmaterial": "Metal",
+  "drawtype": "json",
+  "shape": { "base": "block/alembic/boiler" },
+  "textures": {
+    "iron1": { "base": "game:block/metal/sheet/iron1" },
+    "alambic_rond": { "base": "lavoisier:block/alembic/alembic_round" }
+  },
+  "sidesolid": {
+    "all": "false"
+  },
+  "sideopaque": {
+    "all": "false"
+  },
+  "lightAbsorption": 0,
+  "collisionSelectionBoxesByType": {
+    "*": [
+      {
+        "x1": 0.2,
+        "y1": 0,
+        "z1": 0.2,
+        "x2": 0.8,
+        "y2": 0.8,
+        "z2": 0.8
+      }
+    ]
+  },
+  "resistance": 3.5,
+  "sounds": {
+    "place": "game:block/anvil",
+    "walk": "game:walk/stone"
+  }
+}

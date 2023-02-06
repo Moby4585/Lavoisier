@@ -1,0 +1,86 @@
+{
+  "code": "alembiccomponent",
+  "creativeinventory": {
+    "general": [ "*-north" ],
+    "chemistry": [ "*-north" ]
+  },
+  "behaviors": [ { "name": "HorizontalOrientable" } ],
+  "variantgroups": [
+    {
+      "code": "type",
+      "states": [ "refluxvertical", "reactionchamber", "catalyst", "condenser" ]
+    },
+    {
+      "code": "side",
+      "loadFromProperties": "abstract/horizontalorientation"
+    }
+  ],
+  "blockmaterial": "Metal",
+  "drawtype": "json",
+  "shapebytype": {
+    "*-north": {
+      "base": "block/alembic/{type}",
+      "rotateY": 180
+    },
+    "*-east": {
+      "base": "block/alembic/{type}",
+      "rotateY": 90
+    },
+    "*-south": {
+      "base": "block/alembic/{type}",
+      "rotateY": 0
+    },
+    "*-west": {
+      "base": "block/alembic/{type}",
+      "rotateY": 270
+    }
+  },
+  "texturesbytype": {
+    "-refluxvertical-*": { "alembic_plate": { "base": "block/alembic/alembic_condenser" } },
+    "-reactionchamber-*": { "alambic_plaque": { "base": "block/alembic/alembic_chamber" } }
+  },
+  "sidesolid": {
+    "all": "false"
+  },
+  "sideopaque": {
+    "all": "false"
+  },
+  "lightAbsorption": 0,
+  "collisionSelectionBoxesByType": {
+    "*-refluxvertical-*": [
+      {
+        "x1": 0.4,
+        "y1": -0.2,
+        "z1": 0.4,
+        "x2": 0.6,
+        "y2": 0.8,
+        "z2": 0.6
+      }
+    ],
+    "*-reactionchamber-*": [
+      {
+        "x1": 0.2,
+        "y1": 0,
+        "z1": 0.2,
+        "x2": 0.8,
+        "y2": 0.8,
+        "z2": 0.8
+      }
+    ],
+    "*": [
+      {
+        "x1": 0,
+        "y1": 0,
+        "z1": 0,
+        "x2": 1,
+        "y2": 1,
+        "z2": 1
+      }
+    ]
+  },
+  "resistance": 3.5,
+  "sounds": {
+    "place": "game:block/anvil",
+    "walk": "game:walk/stone"
+  }
+}

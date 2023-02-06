@@ -1,0 +1,11 @@
+{
+  "type": "code",
+  "modid": "lavoisier",
+  "name": "Lavoisier",
+  "authors": ["Moby_"],
+  "description": "Adds Lavoisier-era chemistry. Looks a lot like alchemy.",
+  "version": "1.0.0",
+  "dependencies": {
+    "game": ""
+  }
+}
