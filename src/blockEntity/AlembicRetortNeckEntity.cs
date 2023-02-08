@@ -199,7 +199,6 @@ namespace lavoisier
             return true;
         }
 
-
         public override void FromTreeAttributes(ITreeAttribute tree, IWorldAccessor worldForResolving)
         {
             base.FromTreeAttributes(tree, worldForResolving);

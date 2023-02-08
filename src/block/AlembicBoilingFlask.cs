@@ -83,15 +83,11 @@ namespace lavoisier
                     info += ("\n\nHas oil lamp");
                     //info += "\n" + be.Inventory[2].Itemstack.Collectible.Code.ToString();
                 }
-                info += "\n\nWill create: ";
                 string[] setup = be.GetApparatusComposition().ToArray<string>();
                 RetortRecipe rec;
                 if ((rec = RecipeSystem.matchRecipe(world, (be.Inventory[0]?.Itemstack) ?? null, (be.Inventory[1]?.Itemstack) ?? null, setup)) != null) {
+                    info += "\n\nWill create: ";
                     info += Lang.Get("{0}", rec.product.ResolvedItemstack.GetName());
-                }
-                else
-                {
-                    info += "null";
                 }
             }
 
