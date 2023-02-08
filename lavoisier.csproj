@@ -69,15 +69,19 @@
     <Content Include="assets\lavoisier\textures\block\alembic\alembic_plate.png" />
     <Content Include="assets\lavoisier\textures\block\alembic\alembic_round.png" />
     <Content Include="modinfo.json" />
+    <Compile Include="src\blockEntity\AlembicRetortNeckEntity.cs" />
+    <Compile Include="src\block\AlembicRetortNeck.cs" />
     <Compile Include="src\LavoisierMod.cs" />
     <Compile Include="src\block\AlembicBoilingFlask.cs" />
     <Compile Include="src\blockEntity\AlembicBoilingFlaskEntity.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\lavoisier\blocktypes\alembic\component.json" />
+    <Content Include="assets\lavoisier\blocktypes\alembic\retortneck.json" />
     <None Include="assets\lavoisier\lang\en.json" />
     <None Include="assets\lavoisier\shapes\block\alembic\reactionchamber.json" />
     <None Include="assets\lavoisier\shapes\block\alembic\refluxvertical.json" />
+    <None Include="assets\lavoisier\shapes\block\alembic\retortneck.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\blockEntityBehaviour\" />

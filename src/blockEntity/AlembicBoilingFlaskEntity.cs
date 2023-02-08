@@ -117,7 +117,7 @@ namespace lavoisier
                     }
                 }
             }
-            if (!hotbarSlot.Empty && !hotbarSlot.Itemstack.Collectible.IsLiquid())
+            if (!hotbarSlot.Empty && !(hotbarSlot.Itemstack.Collectible is BlockLiquidContainerTopOpened) && !hotbarSlot.Itemstack.Collectible.Code.Path.StartsWith("alembic"))
             {
                 byPlayer.InventoryManager.ActiveHotbarSlot.TryPutInto(Api.World, inventory[1], 1);
                 return true;

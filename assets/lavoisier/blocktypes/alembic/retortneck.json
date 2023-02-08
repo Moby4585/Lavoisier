@@ -1,0 +1,76 @@
+{
+  "code": "alembicretortneck",
+  "class": "AlembicRetortNeck",
+  "entityClass": "AlembicRetortNeckEntity",
+  "attributes": {
+    "liquidContainerProps": {
+      "capacityLitres": 1
+    }
+  },
+  "behaviors": [
+    {
+      "name": "Unstable"
+    },
+    {
+      "name": "HorizontalOrientable"
+    }
+  ],
+  "variantgroups": [
+    {
+      "code": "side",
+      "loadFromProperties": "abstract/horizontalorientation"
+    }
+  ],
+  "creativeinventory": {
+    "general": [ "*" ],
+    "chemistry": [ "*" ]
+  },
+  "blockmaterial": "Metal",
+  "drawtype": "json",
+  "shapebytype": {
+    "*-west": {
+      "base": "block/alembic/retortneck",
+      "rotateY": 270
+    },
+    "*-east": {
+      "base": "block/alembic/retortneck",
+      "rotateY": 90
+    },
+    "*-south": {
+      "base": "block/alembic/retortneck",
+      "rotateY": 0
+    },
+    "*-north": {
+      "base": "block/alembic/retortneck",
+      "rotateY": 180
+    }
+  },
+  "textures": {
+    "iron1": { "base": "game:block/metal/sheet/iron1" },
+    "alambic_plaque": { "base": "lavoisier:block/alembic/alembic_plate" }
+  },
+  "sidesolid": {
+    "all": "false"
+  },
+  "sideopaque": {
+    "all": "false"
+  },
+  "lightAbsorption": 0,
+  "collisionSelectionBoxesByType": {
+    "*": [
+      {
+        "x1": 0.2,
+        "y1": 0,
+        "z1": 0.2,
+        "x2": 0.8,
+        "y2": 0.8,
+        "z2": 0.8
+      }
+    ]
+  },
+  "resistance": 3.5,
+  "sounds": {
+    "place": "game:block/anvil",
+    "walk": "game:walk/stone"
+  }
+}

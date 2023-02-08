@@ -4,6 +4,7 @@
   "block-alembiccomponent-reactionchamber-*": "Reaction chamber",
   "block-alembiccomponent-catalyser-*": "Catalysis chamber",
   "block-alembiccomponent-condenser-*": "Condenser",
+  "block-alembicretortneck-*":  "Retort neck",
 
   "tabname-chemistry":  "Chemistry"
 }
