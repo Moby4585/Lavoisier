@@ -25,7 +25,7 @@ namespace lavoisier
         {
             base.OnLoaded(api);
 
-            RecipeSystem.RegisterRetortRecipes(api.World);
+            if (!RecipeSystem.hasRegisteredRecipes) RecipeSystem.RegisterRetortRecipes(api.World);
         }
 
         public override byte[] GetLightHsv(IBlockAccessor blockAccessor, BlockPos pos, ItemStack stack = null)

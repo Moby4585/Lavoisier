@@ -18,6 +18,8 @@ namespace lavoisier
 {
     static class RecipeSystem
     {
+        public static bool hasRegisteredRecipes = false;
+
         public static List<RetortRecipe> retortRecipes = new List<RetortRecipe>();
 
         public static Dictionary<string, RetortRecipe> retortRecipesDic = new Dictionary<string, RetortRecipe>();
@@ -70,16 +72,20 @@ namespace lavoisier
                     key += s + "+";
                 }
                 key += "ingredients:";
+                bool hasAtLeastOneIngredient = false;
                 if ((recipe.liquidInput?.Resolve(world, "Retort liquid input")) ?? false)
                 {
                     key += recipe.liquidInput.ResolvedItemstack.Collectible.Code + "+";
+                    hasAtLeastOneIngredient = true;
                 }
                 if ((recipe.solidInput?.Resolve(world, "Retort solid input")) ?? false)
                 {
                     key += recipe.solidInput.ResolvedItemstack.Collectible.Code;
+                    hasAtLeastOneIngredient = true;
                 }
-                if (!retortRecipesDic.ContainsKey(key)) retortRecipesDic.Add(key, recipe);
+                if (!retortRecipesDic.ContainsKey(key) && hasAtLeastOneIngredient) retortRecipesDic.Add(key, recipe);
             }
+            hasRegisteredRecipes = true;
         }
 
         public static RetortRecipe matchRecipe(IWorldAccessor world, ItemStack liquidInput, ItemStack solidInput, string[] setup)

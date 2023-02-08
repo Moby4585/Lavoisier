@@ -18,6 +18,8 @@ namespace lavoisier
     {
         //public override float CapacityLitres => 1f;
 
+        public static AssetLocation blockSelfNorth = new AssetLocation("lavoisier:alembicretortneck-north");
+
         public override void OnLoaded(ICoreAPI api)
         {
             base.OnLoaded(api);
@@ -40,7 +42,8 @@ namespace lavoisier
 
         public override ItemStack OnPickBlock(IWorldAccessor world, BlockPos pos)
         {
-            return new ItemStack(this, 1);
+            
+            return new ItemStack(world.GetBlock(blockSelfNorth), 1);
         }
 
         public override string GetPlacedBlockInfo(IWorldAccessor world, BlockPos pos, IPlayer forPlayer)
