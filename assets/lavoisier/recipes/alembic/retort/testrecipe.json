@@ -1,0 +1,17 @@
+[
+	{
+		"code": "distillingapplespirit",
+		"setup": [ "alembicboilingflask" , "alembiccomponent-refluxvertical", "alembicretortneck"],
+		"secondsPerItem": 0.1,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:juiceportion-apple",
+			"litres": 0.1
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-apple",
+			"litres": 0.01
+		}
+	}
+]

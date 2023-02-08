@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\util\RecipeSystem.cs" />
     <Content Include="assets\lavoisier\blocktypes\alembic\boilingflask.json" />
     <Content Include="assets\lavoisier\shapes\block\alembic\boiler.json" />
     <Content Include="assets\lavoisier\textures\block\alembic\alembic_chamber.png" />
@@ -79,6 +80,7 @@
     <Content Include="assets\lavoisier\blocktypes\alembic\component.json" />
     <Content Include="assets\lavoisier\blocktypes\alembic\retortneck.json" />
     <None Include="assets\lavoisier\lang\en.json" />
+    <None Include="assets\lavoisier\recipes\alembic\retort\testrecipe.json" />
     <None Include="assets\lavoisier\shapes\block\alembic\reactionchamber.json" />
     <None Include="assets\lavoisier\shapes\block\alembic\refluxvertical.json" />
     <None Include="assets\lavoisier\shapes\block\alembic\retortneck.json" />

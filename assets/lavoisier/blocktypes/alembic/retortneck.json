@@ -22,8 +22,8 @@
     }
   ],
   "creativeinventory": {
-    "general": [ "*" ],
-    "chemistry": [ "*" ]
+    "general": [ "*-north" ],
+    "chemistry": [ "*-north" ]
   },
   "blockmaterial": "Metal",
   "drawtype": "json",
@@ -59,12 +59,32 @@
   "collisionSelectionBoxesByType": {
     "*": [
       {
-        "x1": 0.2,
+        "x1": 0.3125,
         "y1": 0,
-        "z1": 0.2,
-        "x2": 0.8,
-        "y2": 0.8,
-        "z2": 0.8
+        "z1": 0.25,
+        "x2": 0.6875,
+        "y2": 0.125,
+        "z2": 1,
+        "rotateYByType": {
+          "*-west": 270,
+          "*-east": 90,
+          "*-south": 0,
+          "*-north": 180
+        }
+      },
+      {
+        "x1": 0.4375,
+        "y1": 0.125,
+        "z1": 0.5,
+        "x2": 0.5625,
+        "y2": 0.6875,
+        "z2": 1.3125,
+        "rotateYByType": {
+          "*-west": 270,
+          "*-east": 90,
+          "*-south": 0,
+          "*-north": 180
+        }
       }
     ]
   },

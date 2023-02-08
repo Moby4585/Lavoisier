@@ -6,5 +6,7 @@
   "block-alembiccomponent-condenser-*": "Condenser",
   "block-alembicretortneck-*":  "Retort neck",
 
-  "tabname-chemistry":  "Chemistry"
+  "game:tabname-chemistry": "Chemistry",
+  "recipesloaded": "Unlocking the secrets of the elements...",
+  "null":  "null"
 }

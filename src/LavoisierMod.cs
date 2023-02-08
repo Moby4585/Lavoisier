@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Vintagestory.API.Common;
+using Vintagestory.API.Server;
 
 namespace lavoisier
 {
@@ -17,6 +18,9 @@ namespace lavoisier
             api.RegisterBlockEntityClass("AlembicBoilingFlaskEntity", typeof(AlembicBoilingFlaskEntity));
             api.RegisterBlockClass("AlembicRetortNeck", typeof(AlembicRetortNeck));
             api.RegisterBlockEntityClass("AlembicRetortNeckEntity", typeof(AlembicRetortNeckEntity));
+
+            RecipeSystem.LoadRetortRecipes(api);
+            RecipeSystem.RegisterRetortRecipes(api.World);
         }
     }
 }

@@ -4,17 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Vintagestory.API.Client;
-using Vintagestory.API.Common;
 using Vintagestory.API.Config;
+using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
+using Vintagestory.GameContent;
+using Vintagestory.API.Datastructures;
 
 namespace lavoisier
 {
-    class AlembicRetortNeck : Vintagestory.GameContent.BlockLiquidContainerBase
+    class AlembicRetortNeck : Vintagestory.GameContent.BlockContainer
     {
-        public override float CapacityLitres => 1f;
+        //public override float CapacityLitres => 1f;
 
         public override void OnLoaded(ICoreAPI api)
         {
@@ -26,12 +28,12 @@ namespace lavoisier
         {
             if (base.OnBlockInteractStart(world, byPlayer, blockSel)) return true;
 
-            /*AlembicBoilingFlaskEntity be = world.BlockAccessor.GetBlockEntity(blockSel.Position) as AlembicBoilingFlaskEntity;
+            AlembicRetortNeckEntity be = world.BlockAccessor.GetBlockEntity(blockSel.Position) as AlembicRetortNeckEntity;
             if (be != null)
             {
-                bool handled = be.OnInteract(world, byPlayer, blockSel);
+                bool handled = be.OnBlockInteractStart(byPlayer, blockSel);
                 if (handled) return true;
-            }*/
+            }
 
             return false;
         }
@@ -43,7 +45,20 @@ namespace lavoisier
 
         public override string GetPlacedBlockInfo(IWorldAccessor world, BlockPos pos, IPlayer forPlayer)
         {
-            string info = base.GetPlacedBlockInfo(world, pos, forPlayer);
+            string info = "Empty";// base.GetPlacedBlockInfo(world, pos, forPlayer);
+
+            AlembicRetortNeckEntity be = world.BlockAccessor.GetBlockEntity(pos) as AlembicRetortNeckEntity;
+
+            if (be != null)
+            {
+                if (!be.Inventory[0].Empty)
+                {
+                    ItemStack bucketStack = be.Inventory[0].Itemstack;
+
+                    info = "Container: ";
+                    info += Lang.Get("{0} litres of {1}", (bucketStack.Collectible as BlockLiquidContainerTopOpened).GetCurrentLitres(bucketStack), (bucketStack.Collectible as BlockLiquidContainerTopOpened).GetContent(bucketStack).GetName());
+                }
+            }
 
             return info;
         }

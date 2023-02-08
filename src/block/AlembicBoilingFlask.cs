@@ -82,11 +82,32 @@ namespace lavoisier
                     info += ("\n\nHas oil lamp");
                     //info += "\n" + be.Inventory[2].Itemstack.Collectible.Code.ToString();
                 }
-                info += "\n\nSetup:\n";
+                info += "\n\nWill create: ";
+                string[] setup = be.GetApparatusComposition().ToArray<string>();
+                info += Lang.Get("{0}", (RecipeSystem.matchRecipe(world, be.Inventory[0].Itemstack, be.Inventory[1].Itemstack, setup)?.product.ResolvedItemstack.GetName()) ?? "null");
+
+                /*info += "\n\nSetup:\n";
                 foreach (string s in be.GetApparatusComposition())
                 {
                     info += s + "\n";
+                }*/
+                RetortRecipe recipe = RecipeSystem.retortRecipes[0];
+                string key = "setup:";
+                foreach (string s in recipe.setup)
+                {
+                    key += s + "+";
                 }
+                key += ";ingredients:";
+                if ((recipe.liquidInput?.Resolve(world, "Retort liquid input")) ?? false)
+                {
+                    key += recipe.liquidInput.ResolvedItemstack.Collectible.Code + "+";
+                }
+                if ((recipe.solidInput?.Resolve(world, "Retort solid input")) ?? false)
+                {
+                    key += recipe.solidInput.ResolvedItemstack.GetName();
+                }
+                info += "\n" + key;
+                //if (!retortRecipesDic.ContainsKey(key)) retortRecipesDic.Add(key, recipe);
             }
 
             return info;
