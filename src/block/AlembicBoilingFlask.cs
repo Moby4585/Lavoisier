@@ -24,7 +24,8 @@ namespace lavoisier
         public override void OnLoaded(ICoreAPI api)
         {
             base.OnLoaded(api);
-            
+
+            RecipeSystem.RegisterRetortRecipes(api.World);
         }
 
         public override byte[] GetLightHsv(IBlockAccessor blockAccessor, BlockPos pos, ItemStack stack = null)
@@ -84,30 +85,14 @@ namespace lavoisier
                 }
                 info += "\n\nWill create: ";
                 string[] setup = be.GetApparatusComposition().ToArray<string>();
-                info += Lang.Get("{0}", (RecipeSystem.matchRecipe(world, be.Inventory[0].Itemstack, be.Inventory[1].Itemstack, setup)?.product.ResolvedItemstack.GetName()) ?? "null");
-
-                /*info += "\n\nSetup:\n";
-                foreach (string s in be.GetApparatusComposition())
-                {
-                    info += s + "\n";
-                }*/
-                RetortRecipe recipe = RecipeSystem.retortRecipes[0];
-                string key = "setup:";
-                foreach (string s in recipe.setup)
-                {
-                    key += s + "+";
+                RetortRecipe rec;
+                if ((rec = RecipeSystem.matchRecipe(world, (be.Inventory[0]?.Itemstack) ?? null, (be.Inventory[1]?.Itemstack) ?? null, setup)) != null) {
+                    info += Lang.Get("{0}", rec.product.ResolvedItemstack.GetName());
                 }
-                key += ";ingredients:";
-                if ((recipe.liquidInput?.Resolve(world, "Retort liquid input")) ?? false)
+                else
                 {
-                    key += recipe.liquidInput.ResolvedItemstack.Collectible.Code + "+";
+                    info += "null";
                 }
-                if ((recipe.solidInput?.Resolve(world, "Retort solid input")) ?? false)
-                {
-                    key += recipe.solidInput.ResolvedItemstack.GetName();
-                }
-                info += "\n" + key;
-                //if (!retortRecipesDic.ContainsKey(key)) retortRecipesDic.Add(key, recipe);
             }
 
             return info;

@@ -69,14 +69,14 @@ namespace lavoisier
                 {
                     key += s + "+";
                 }
-                key += ";ingredients:";
+                key += "ingredients:";
                 if ((recipe.liquidInput?.Resolve(world, "Retort liquid input")) ?? false)
                 {
-                    key += recipe.liquidInput.ResolvedItemstack.GetName() + "+";
+                    key += recipe.liquidInput.ResolvedItemstack.Collectible.Code + "+";
                 }
                 if ((recipe.solidInput?.Resolve(world, "Retort solid input")) ?? false)
                 {
-                    key += recipe.solidInput.ResolvedItemstack.GetName();
+                    key += recipe.solidInput.ResolvedItemstack.Collectible.Code;
                 }
                 if (!retortRecipesDic.ContainsKey(key)) retortRecipesDic.Add(key, recipe);
             }
@@ -85,24 +85,27 @@ namespace lavoisier
         public static RetortRecipe matchRecipe(IWorldAccessor world, ItemStack liquidInput, ItemStack solidInput, string[] setup)
         {
 
-            string key = "setup:";
+            string recipeKey = "setup:";
             foreach (string s in setup)
             {
-                key += s + "+";
+                recipeKey += s + "+";
             }
-            key += ";ingredients:";
+            recipeKey += "ingredients:";
             if (liquidInput != null)
             {
-                key += liquidInput.GetName() + "+";
+                recipeKey += liquidInput.Collectible.Code + "+";
             }
             if (solidInput != null)
             {
-                key += solidInput.GetName();
+                recipeKey += solidInput.Collectible.Code;
             }
 
-            if (retortRecipesDic.ContainsKey(key))
+            if (retortRecipesDic.ContainsKey(recipeKey))
             {
-                return retortRecipesDic[key];
+                if (retortRecipesDic[recipeKey].product.Resolve(world, "Retort product"))
+                {
+                    return retortRecipesDic[recipeKey];
+                }
             }
 
             #region oldcode

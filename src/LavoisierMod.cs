@@ -20,7 +20,6 @@ namespace lavoisier
             api.RegisterBlockEntityClass("AlembicRetortNeckEntity", typeof(AlembicRetortNeckEntity));
 
             RecipeSystem.LoadRetortRecipes(api);
-            RecipeSystem.RegisterRetortRecipes(api.World);
         }
     }
 }
