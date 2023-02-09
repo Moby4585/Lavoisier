@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Vintagestory.API.Client;
-using Vintagestory.API.Common;
 using Vintagestory.API.Config;
+using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
+using Vintagestory.GameContent;
+using Vintagestory.API.Datastructures;
 
 namespace lavoisier
 {
@@ -85,9 +87,15 @@ namespace lavoisier
                 }
                 string[] setup = be.GetApparatusComposition().ToArray<string>();
                 RetortRecipe rec;
-                if ((rec = RecipeSystem.matchRecipe(world, (be.Inventory[0]?.Itemstack) ?? null, (be.Inventory[1]?.Itemstack) ?? null, setup)) != null) {
+                if ((rec = RecipeSystem.matchRecipeRetort(world, (be.Inventory[0]?.Itemstack) ?? null, (be.Inventory[1]?.Itemstack) ?? null, setup)) != null) {
                     info += "\n\nWill create: ";
                     info += Lang.Get("{0}", rec.product.ResolvedItemstack.GetName());
+                }
+
+                AlembicRetortNeckEntity rtnEntity;
+                if ((rtnEntity = be.alembicEndContainer as AlembicRetortNeckEntity) != null)
+                {
+                    info += "\n" + ((rtnEntity.Inventory[0].Itemstack?.Collectible as BlockLiquidContainerBase)?.GetContent(rtnEntity.Inventory[0].Itemstack)?.Collectible.Code.ToString()) ?? "";
                 }
             }
 

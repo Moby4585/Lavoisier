@@ -59,7 +59,14 @@ namespace lavoisier
                     ItemStack bucketStack = be.Inventory[0].Itemstack;
 
                     info = "Container: ";
-                    info += Lang.Get("{0} litres of {1}", (bucketStack.Collectible as BlockLiquidContainerTopOpened).GetCurrentLitres(bucketStack), (bucketStack.Collectible as BlockLiquidContainerTopOpened).GetContent(bucketStack).GetName());
+                    if ((bucketStack.Collectible as BlockLiquidContainerTopOpened).GetContent(bucketStack) != null)
+                    {
+                        info += Lang.Get("{0} litres of {1}", (bucketStack.Collectible as BlockLiquidContainerTopOpened).GetCurrentLitres(bucketStack), (bucketStack.Collectible as BlockLiquidContainerTopOpened).GetContent(bucketStack).GetName());
+                    }
+                    else
+                    {
+                        info += "Empty";
+                    }
                 }
             }
 

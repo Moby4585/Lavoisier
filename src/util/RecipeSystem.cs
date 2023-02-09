@@ -88,7 +88,7 @@ namespace lavoisier
             hasRegisteredRecipes = true;
         }
 
-        public static RetortRecipe matchRecipe(IWorldAccessor world, ItemStack liquidInput, ItemStack solidInput, string[] setup)
+        public static RetortRecipe matchRecipeRetort(IWorldAccessor world, ItemStack liquidInput, ItemStack solidInput, string[] setup)
         {
 
             string recipeKey = "setup:";

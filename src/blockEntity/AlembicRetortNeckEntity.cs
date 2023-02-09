@@ -15,11 +15,14 @@ using Vintagestory.API.Datastructures;
 
 namespace lavoisier
 {
-    class AlembicRetortNeckEntity : BlockEntityContainer
+    class AlembicRetortNeckEntity : BlockEntityContainer, IAlembicEndContainer
     {
         public override string InventoryClassName => "retortneck";
 
-        protected InventoryGeneric inventory;
+        public ItemStack lastReceivedDistillate;
+        public float timeSinceLastDistillate = 9999999999999f;
+
+        public InventoryGeneric inventory;
         public override InventoryBase Inventory => inventory;
 
         MeshData currentMesh;
@@ -58,7 +61,7 @@ namespace lavoisier
         {
             ItemStack bucketStack = inventory[0].Itemstack;
             int color = 0;
-            color = (bucketStack?.Collectible as BlockLiquidContainerTopOpened)?.GetContent(bucketStack).Collectible.GetRandomColor(Api as ICoreClientAPI, bucketStack) ?? 0;
+            if (lastReceivedDistillate != null) color = lastReceivedDistillate.Collectible.GetRandomColor(Api as ICoreClientAPI, bucketStack);
 
 
 
@@ -96,6 +99,7 @@ namespace lavoisier
         
         public bool OnBlockInteractStart(IPlayer byPlayer, BlockSelection blockSel)
         {
+
             if (blockSel.SelectionBoxIndex < 2)
             {
                 ItemSlot handslot = byPlayer.InventoryManager.ActiveHotbarSlot;
@@ -106,12 +110,28 @@ namespace lavoisier
                     AssetLocation sound = inventory[0].Itemstack?.Block?.Sounds?.Place;
                     Api.World.PlaySoundAt(sound != null ? sound : new AssetLocation("sounds/player/build"), byPlayer.Entity, byPlayer, true, 16);
 
-                    if (!byPlayer.InventoryManager.TryGiveItemstack(inventory[0].Itemstack, true))
+                    if (!byPlayer.InventoryManager.TryGiveItemstack(inventory[0].Itemstack.Clone(), true))
                     {
                         Api.World.SpawnItemEntity(inventory[1].Itemstack, Pos.ToVec3d().Add(0.5, 0.5, 0.5));
                     }
                     inventory[0].Itemstack = null;
+                    /*ItemStack contentStack = (inventory[0].Itemstack.Collectible as BlockLiquidContainerBase).GetContent(inventory[0].Itemstack);
+                    if (inventory[0].TryPutInto(Api.World, byPlayer.InventoryManager.ActiveHotbarSlot) > 0)
+                    {
+                        (byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Collectible as BlockLiquidContainerTopOpened)?.SetContent(byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack, contentStack);
+                    }/*
+                    ItemStack contentStack = (inventory[0].Itemstack.Collectible as BlockLiquidContainerBase).GetContent(inventory[0].Itemstack);
+                    byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack = inventory[0].Itemstack;
+                    inventory[0].Itemstack = null;
+                    ItemStack[] stackArray = { contentStack };
+                    
                     MarkDirty(true);
+                    bucketMesh?.Clear();
+
+                    (byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Collectible as BlockLiquidContainerBase)?.TryPutLiquid(byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack, contentStack, 9999f);
+                    */
+                    MarkDirty(true);
+                    handslot.MarkDirty();
                     bucketMesh?.Clear();
                     return true;
                 }
@@ -208,7 +228,7 @@ namespace lavoisier
                 currentMesh = GenMesh();
                 MarkDirty(true);
             }
-
+             
             if (worldForResolving.Side == EnumAppSide.Client)
             {
                 genBucketMesh();
@@ -220,5 +240,38 @@ namespace lavoisier
             base.ToTreeAttributes(tree);
         }
 
+        bool IAlembicEndContainer.TryAddToContainer(ItemStack fromStack)
+        {
+            //if (Api.Side != EnumAppSide.Server) return false;
+            ItemStack bucketStack = inventory[0].Itemstack;
+            if (bucketStack != null)
+            {
+                if (bucketStack.Collectible as BlockLiquidContainerTopOpened != null)
+                {
+                    BlockLiquidContainerBase bucket = bucketStack.Collectible as BlockLiquidContainerBase;
+                    int litresTransferred = (inventory[0].Itemstack.Collectible as BlockLiquidContainerBase).TryPutLiquid(inventory[0].Itemstack, fromStack.Clone(), bucket.CapacityLitres);
+                    if (litresTransferred > 0f )
+                    {
+                        /*ItemStack content = (Inventory[0].Itemstack.Collectible as BlockLiquidContainerBase).GetContent(Inventory[0].Itemstack);
+                        content.StackSize += litresTransferred;
+                        (Inventory[0].Itemstack.Collectible as BlockLiquidContainerBase).SetContent(Inventory[0].Itemstack, content);*/
+                        lastReceivedDistillate = fromStack;
+                        genBucketMesh();
+                        MarkDirty(true);
+                        inventory[0].MarkDirty();
+                        return true;
+                    }
+                    else
+                    {
+                        lastReceivedDistillate = null;
+                    }
+                } 
+            }
+            else
+            {
+                lastReceivedDistillate = null;
+            }
+            return false;
+        }
     }
 }

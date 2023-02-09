@@ -23,6 +23,8 @@ namespace lavoisier
         public static AssetLocation oilLampBlock = new AssetLocation("oillamp-up");
         MeshData oilLampMesh;
 
+        public IAlembicEndContainer alembicEndContainer;
+
         // Inventory : 0 - liquide, 1 - solide, 2 - lampe
 
         public override void Initialize(ICoreAPI api)
@@ -32,7 +34,10 @@ namespace lavoisier
             loadMesh();
 
             RegisterGameTickListener(OnGameTick, 50);
+            
         }
+
+        
 
         public AlembicBoilingFlaskEntity()
         {
@@ -43,7 +48,16 @@ namespace lavoisier
 
         public void OnGameTick(float dt)
         {
-            
+            AlembicRetortNeckEntity rtnEntity;
+            if ((rtnEntity = alembicEndContainer as AlembicRetortNeckEntity) != null)
+            {
+                RetortRecipe recipe = RecipeSystem.matchRecipeRetort(Api.World, inventory[0].Itemstack, inventory[1].Itemstack, GetApparatusComposition().ToArray());
+                if (recipe != null)
+                {
+                    alembicEndContainer.TryAddToContainer(recipe.product.ResolvedItemstack);
+                    MarkDirty();
+                }
+            }
         }
 
         void inventory_SlotModified(int slotId)
@@ -141,21 +155,26 @@ namespace lavoisier
 
             // Check blocks around boiler
             BlockPos lastBlock = null;
+            BlockPos lastValidBlock = null;
             if ((lastBlock = getNextComponent("north", this.Pos)) != null)
             {
                 apparatusComposition.Add(Api.World.BlockAccessor.GetBlock(lastBlock).CodeWithoutParts(1));
+                lastValidBlock = lastBlock;
             }
             else if ((lastBlock = getNextComponent("east", this.Pos)) != null)
             {
                 apparatusComposition.Add(Api.World.BlockAccessor.GetBlock(lastBlock).CodeWithoutParts(1));
+                lastValidBlock = lastBlock;
             }
             else if ((lastBlock = getNextComponent("south", this.Pos)) != null)
             {
                 apparatusComposition.Add(Api.World.BlockAccessor.GetBlock(lastBlock).CodeWithoutParts(1));
+                lastValidBlock = lastBlock;
             }
             else if ((lastBlock = getNextComponent("west", this.Pos)) != null)
             {
                 apparatusComposition.Add(Api.World.BlockAccessor.GetBlock(lastBlock).CodeWithoutParts(1));
+                lastValidBlock = lastBlock;
             }
             
             if (lastBlock == null)
@@ -170,12 +189,18 @@ namespace lavoisier
                 if (lastBlock != null)
                 {
                     apparatusComposition.Add(Api.World.BlockAccessor.GetBlock(lastBlock).CodeWithoutParts(1));
+                    lastValidBlock = lastBlock;
                 }
                 else
                 {
                     checkDone = true;
                 }
             }
+            if (lastValidBlock != null)
+            {
+                alembicEndContainer = Api.World.BlockAccessor.GetBlockEntity(lastValidBlock) as IAlembicEndContainer;
+            }
+
             return apparatusComposition;
         }
 
