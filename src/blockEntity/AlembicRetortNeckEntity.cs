@@ -63,7 +63,11 @@ namespace lavoisier
             int color = 0;
             if (lastReceivedDistillate != null) color = lastReceivedDistillate.Collectible.GetRandomColor(Api as ICoreClientAPI, bucketStack);
 
-
+            if (inventory[0].Empty) // Ideally to be removed ; patches a bug where bowls would keep being displayed after being removed
+            {
+                bucketMesh?.Clear();
+            }
+            MarkDirty(true);
 
             Api.World.SpawnParticles(1f, color, Pos.ToVec3d().Add(spoutpos), Pos.ToVec3d().Add(spoutpos), new Vec3f(), new Vec3f(), 0.08f, 1, 0.15f, EnumParticleModel.Quad);
 
@@ -89,7 +93,17 @@ namespace lavoisier
         {
             inventory = new InventoryGeneric(1, null, null);
 
-            //inventory.SlotModified += inventory_SlotModified;
+            inventory.SlotModified += inventory_SlotModified;
+        }
+
+        void inventory_SlotModified(int slotModified)
+        {
+            genBucketMesh();
+            if (inventory[0].Empty)
+            {
+                bucketMesh?.Clear();
+            }
+            MarkDirty(true);
         }
 
         protected virtual ItemSlot GetAutoPushIntoSlot(BlockFacing atBlockFace, ItemSlot fromSlot)
@@ -115,24 +129,9 @@ namespace lavoisier
                         Api.World.SpawnItemEntity(inventory[1].Itemstack, Pos.ToVec3d().Add(0.5, 0.5, 0.5));
                     }
                     inventory[0].Itemstack = null;
-                    /*ItemStack contentStack = (inventory[0].Itemstack.Collectible as BlockLiquidContainerBase).GetContent(inventory[0].Itemstack);
-                    if (inventory[0].TryPutInto(Api.World, byPlayer.InventoryManager.ActiveHotbarSlot) > 0)
-                    {
-                        (byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Collectible as BlockLiquidContainerTopOpened)?.SetContent(byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack, contentStack);
-                    }/*
-                    ItemStack contentStack = (inventory[0].Itemstack.Collectible as BlockLiquidContainerBase).GetContent(inventory[0].Itemstack);
-                    byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack = inventory[0].Itemstack;
-                    inventory[0].Itemstack = null;
-                    ItemStack[] stackArray = { contentStack };
-                    
-                    MarkDirty(true);
                     bucketMesh?.Clear();
-
-                    (byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Collectible as BlockLiquidContainerBase)?.TryPutLiquid(byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack, contentStack, 9999f);
-                    */
                     MarkDirty(true);
                     handslot.MarkDirty();
-                    bucketMesh?.Clear();
                     return true;
                 }
 
@@ -144,8 +143,9 @@ namespace lavoisier
                         AssetLocation sound = inventory[0].Itemstack?.Block?.Sounds?.Place;
                         Api.World.PlaySoundAt(sound != null ? sound : new AssetLocation("sounds/player/build"), byPlayer.Entity, byPlayer, true, 16);
                         handslot.MarkDirty();
-                        MarkDirty(true);
                         genBucketMesh();
+                        MarkDirty(true);
+                        
                     }
                     return true;
                 }
@@ -177,6 +177,10 @@ namespace lavoisier
                     .Translate(1.5f / 16f, 0, 0)
                     .Rotate(new Vec3f(0.5f, 0.5f, 0.5f), 0, GameMath.PIHALF + Block.Shape.rotateY * GameMath.DEG2RAD, 0)
                 ;
+            }
+            else
+            {
+                bucketMesh?.Clear();
             }
         }
         internal MeshData GenMesh()
@@ -256,22 +260,36 @@ namespace lavoisier
                         content.StackSize += litresTransferred;
                         (Inventory[0].Itemstack.Collectible as BlockLiquidContainerBase).SetContent(Inventory[0].Itemstack, content);*/
                         lastReceivedDistillate = fromStack;
-                        genBucketMesh();
-                        MarkDirty(true);
+                        //genBucketMesh();
+                        
                         inventory[0].MarkDirty();
+                        MarkDirty(true);
                         return true;
                     }
                     else
                     {
-                        lastReceivedDistillate = null;
+                        //lastReceivedDistillate = null;
+                        return true;
                     }
                 } 
             }
             else
             {
-                lastReceivedDistillate = null;
+                //if (bucketMesh != null) bucketMesh.Clear();
+                MarkDirty(true);
+                //lastReceivedDistillate = null;
             }
             return false;
+        }
+
+        public string getCustomItem()
+        {
+            return "";
+        }
+
+        public void stopDistilling()
+        {
+            lastReceivedDistillate = null;
         }
     }
 }

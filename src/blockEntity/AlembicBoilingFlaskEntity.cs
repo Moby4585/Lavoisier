@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Vintagestory.API.Client;
 using Vintagestory.API.Config;
 using Vintagestory.API.Common;
+using Vintagestory.API.Server;
 using Vintagestory.API.Common.Entities;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
@@ -23,6 +24,9 @@ namespace lavoisier
         public static AssetLocation oilLampBlock = new AssetLocation("oillamp-up");
         MeshData oilLampMesh;
 
+        public bool isReacting = false;
+        public int amountReacted = 0;
+
         public IAlembicEndContainer alembicEndContainer;
 
         // Inventory : 0 - liquide, 1 - solide, 2 - lampe
@@ -34,7 +38,6 @@ namespace lavoisier
             loadMesh();
 
             RegisterGameTickListener(OnGameTick, 50);
-            
         }
 
         
@@ -48,16 +51,32 @@ namespace lavoisier
 
         public void OnGameTick(float dt)
         {
-            AlembicRetortNeckEntity rtnEntity;
+            MarkDirty(true);
+
+            _ = GetApparatusComposition(); // Used to set alembicEndContainer beforehand maybe? Apparently it's needed I guess?
+
+            RetortRecipe recipe = RecipeSystem.matchRecipeRetort(Api.World, inventory[0].Itemstack, inventory[1].Itemstack, GetApparatusComposition().ToArray(), alembicEndContainer);
+
+            if (alembicEndContainer != null) // Handle recipe with end container
+            {
+                
+            }
+            else // Handle self-contained recipe (only makes byproducts)
+            {
+
+            }
+
+            /*AlembicRetortNeckEntity rtnEntity;
             if ((rtnEntity = alembicEndContainer as AlembicRetortNeckEntity) != null)
             {
                 RetortRecipe recipe = RecipeSystem.matchRecipeRetort(Api.World, inventory[0].Itemstack, inventory[1].Itemstack, GetApparatusComposition().ToArray());
                 if (recipe != null)
                 {
                     alembicEndContainer.TryAddToContainer(recipe.product.ResolvedItemstack);
-                    MarkDirty();
+
+                    
                 }
-            }
+            }*/
         }
 
         void inventory_SlotModified(int slotId)
@@ -139,17 +158,10 @@ namespace lavoisier
             return false;
         }
 
-        /*private void TryPut(ItemSlot fromSlot, ItemSlot intoSlot)
-        {
-            if (fromSlot.TryPutInto(Api.World, intoSlot, 1) > 0)
-            {
-                fromSlot.MarkDirty();
-                MarkDirty(true);
-            }
-        }*/
-
         public List<string> GetApparatusComposition()
         {
+            
+
             List<string> apparatusComposition = new List<string>();
             apparatusComposition.Add(this.Block.Code.Path);
 
@@ -198,7 +210,9 @@ namespace lavoisier
             }
             if (lastValidBlock != null)
             {
-                alembicEndContainer = Api.World.BlockAccessor.GetBlockEntity(lastValidBlock) as IAlembicEndContainer;
+                IAlembicEndContainer IAlembic;
+                if ((IAlembic = Api.World.BlockAccessor.GetBlockEntity(lastValidBlock) as IAlembicEndContainer) != null) alembicEndContainer = IAlembic;
+                else alembicEndContainer = null;
             }
 
             return apparatusComposition;

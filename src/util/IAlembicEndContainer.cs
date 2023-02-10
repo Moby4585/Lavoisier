@@ -17,5 +17,9 @@ namespace lavoisier
     public interface IAlembicEndContainer
     {
         bool TryAddToContainer(ItemStack fromStack);
+
+        string getCustomItem();
+
+        void stopDistilling();
     }
 }

@@ -2,7 +2,7 @@
 	{
 		"code": "distillingapplecider",
 		"setup": [ "alembicboilingflask", "alembicretortneck" ],
-		"secondsPerItem": 1,
+		"ticksPerItem": 20,
 		"liquidInput": {
 			"type": "item",
 			"code": "game:ciderportion-apple",
@@ -17,7 +17,7 @@
 	{
 		"code": "distillingapplespirit",
 		"setup": [ "alembicboilingflask", "alembicretortneck" ],
-		"secondsPerItem": 0.2,
+		"ticksPerItem": 4,
 		"liquidInput": {
 			"type": "item",
 			"code": "game:spiritportion-apple",

@@ -67,6 +67,7 @@ namespace lavoisier
                     {
                         info += "Empty";
                     }
+                    //info += "\n" + be.lastReceivedDistillate?.Collectible.Code.ToString() ?? "no lrd";
                 }
             }
 
