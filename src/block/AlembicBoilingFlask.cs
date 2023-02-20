@@ -40,9 +40,11 @@ namespace lavoisier
 
         public override bool OnBlockInteractStart(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)
         {
+            AlembicBoilingFlaskEntity be = world.BlockAccessor.GetBlockEntity(blockSel.Position) as AlembicBoilingFlaskEntity;
+            if (be?.isReacting ?? false) return be.OnInteract(world, byPlayer, blockSel, true);
+
             if (base.OnBlockInteractStart(world, byPlayer, blockSel)) return true;
 
-            AlembicBoilingFlaskEntity be = world.BlockAccessor.GetBlockEntity(blockSel.Position) as AlembicBoilingFlaskEntity;
             if (be != null)
             {
                 bool handled = be.OnInteract(world, byPlayer, blockSel);                
@@ -86,14 +88,20 @@ namespace lavoisier
                 string[] setup = be.GetApparatusComposition().ToArray<string>();
                 RetortRecipe rec;
                 if ((rec = RecipeSystem.matchRecipeRetort(world, (be.Inventory[0]?.Itemstack) ?? null, (be.Inventory[1]?.Itemstack) ?? null, setup)) != null) {
-                    info += "\n\nWill create: ";
+                    info += be.isReacting ? "\n\nCreating: " : "\n\nWill create: ";
                     info += Lang.Get("{0}", rec.product.ResolvedItemstack.GetName());
                 }
 
-                AlembicRetortNeckEntity rtnEntity;
+                /*AlembicRetortNeckEntity rtnEntity;
                 if ((rtnEntity = be.alembicEndContainer as AlembicRetortNeckEntity) != null)
                 {
                     info += "\n" + ((rtnEntity.Inventory[0].Itemstack?.Collectible as BlockLiquidContainerBase)?.GetContent(rtnEntity.Inventory[0].Itemstack)?.Collectible.Code.ToString()) ?? "";
+                }*/
+                info += "\nisReacting: " + be.isReacting.ToString() + " amountReacted: " + be.amountReacted.ToString() + " amountToReact: " + be.amountToReact.ToString();
+                if (be.reactingRecipe != null) {
+                    info += "\n\nLiquidInput: " + be.reactingRecipe.liquidInput?.ResolvedItemstack?.StackSize;
+                    info += "\nSolidInput: " + be.reactingRecipe.solidInput?.ResolvedItemstack?.StackSize;
+                    info += "\nOutput: " + be.reactingRecipe.product?.ResolvedItemstack?.StackSize;
                 }
             }
 

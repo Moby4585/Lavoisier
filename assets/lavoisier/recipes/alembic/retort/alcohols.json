@@ -2,31 +2,36 @@
 	{
 		"code": "distillingapplecider",
 		"setup": [ "alembicboilingflask", "alembicretortneck" ],
-		"ticksPerItem": 20,
+		"ticksPerItem": 40,
 		"liquidInput": {
 			"type": "item",
 			"code": "game:ciderportion-apple",
-			"litres": 0.1
+			"stackSize": 10
 		},
 		"product": {
 			"type": "item",
 			"code": "game:spiritportion-apple",
-			"litres": 0.01
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
 		}
 	},
 	{
 		"code": "distillingapplespirit",
 		"setup": [ "alembicboilingflask", "alembicretortneck" ],
-		"ticksPerItem": 4,
+		"ticksPerItem": 20,
 		"liquidInput": {
 			"type": "item",
 			"code": "game:spiritportion-apple",
-			"litres": 0.02
+			"stackSize": 2
 		},
 		"product": {
 			"type": "item",
 			"code": "game:alcoholportion",
-			"litres": 0.01
+			"stackSize": 1
 		}
 	}
 ]

@@ -20,7 +20,7 @@ namespace lavoisier
         ICoreServerAPI api;
         public override double ExecuteOrder()
         {
-            return 1;
+            return 1.2d;
         }
         public override bool ShouldLoad(EnumAppSide side)
         {
@@ -33,7 +33,7 @@ namespace lavoisier
             this.api = sapi;
 
             RecipeSystem.RegisterRetortRecipes(api.World);
-            sapi.World.Logger.StoryEvent(Lang.Get("Complex molecules..."));
+            sapi.World.Logger.StoryEvent(Lang.Get("Complex formulas..."));
         }
     }
 }

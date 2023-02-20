@@ -16,10 +16,12 @@ namespace lavoisier
 {
     public interface IAlembicEndContainer
     {
-        bool TryAddToContainer(ItemStack fromStack);
+        bool handleRecipe(RetortRecipe recipe);
 
         string getCustomItem();
 
         void stopDistilling();
+
+        bool checkStoechiometry(RetortRecipe recipe);
     }
 }

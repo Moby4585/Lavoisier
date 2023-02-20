@@ -244,16 +244,20 @@ namespace lavoisier
             base.ToTreeAttributes(tree);
         }
 
-        bool IAlembicEndContainer.TryAddToContainer(ItemStack fromStack)
+        bool IAlembicEndContainer.handleRecipe(RetortRecipe recipe)
         {
-            //if (Api.Side != EnumAppSide.Server) return false;
+            if (!recipe.product.Resolve(Api.World, "Resolving retort neck product")) return false;
+
+            ItemStack fromStack = recipe.product.ResolvedItemstack;
+
+            //Handle dropping product into the bowl
             ItemStack bucketStack = inventory[0].Itemstack;
             if (bucketStack != null)
             {
                 if (bucketStack.Collectible as BlockLiquidContainerTopOpened != null)
                 {
                     BlockLiquidContainerBase bucket = bucketStack.Collectible as BlockLiquidContainerBase;
-                    int litresTransferred = (inventory[0].Itemstack.Collectible as BlockLiquidContainerBase).TryPutLiquid(inventory[0].Itemstack, fromStack.Clone(), bucket.CapacityLitres);
+                    int litresTransferred = (inventory[0].Itemstack.Collectible as BlockLiquidContainerBase).TryPutLiquid(inventory[0].Itemstack, fromStack.Clone(), 9999f);
                     if (litresTransferred > 0f )
                     {
                         /*ItemStack content = (Inventory[0].Itemstack.Collectible as BlockLiquidContainerBase).GetContent(Inventory[0].Itemstack);
@@ -262,7 +266,7 @@ namespace lavoisier
                         lastReceivedDistillate = fromStack;
                         //genBucketMesh();
                         
-                        inventory[0].MarkDirty();
+                        //inventory[0].MarkDirty();
                         MarkDirty(true);
                         return true;
                     }
@@ -290,6 +294,11 @@ namespace lavoisier
         public void stopDistilling()
         {
             lastReceivedDistillate = null;
+        }
+
+        public bool checkStoechiometry(RetortRecipe recipe)
+        {
+            return true;
         }
     }
 }

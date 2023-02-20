@@ -89,7 +89,14 @@ namespace lavoisier
                     hasAtLeastOneIngredient = true;
                 }
 
-                if (!retortRecipesDic.ContainsKey(key) && hasAtLeastOneIngredient) retortRecipesDic.Add(key, recipe);
+                if ((recipe.product?.Resolve(world, "Retort product") ?? true)
+                    /*&& (recipe.liquidByproduct?.Resolve(world, "Retort liquid byproduct") ?? true)
+                    && (recipe.solidByproduct?.Resolve(world, "Retort solid byproduct") ?? true)*/)
+                {
+                    recipe.solidByproduct?.Resolve(world, "Retort solid byproduct");
+                    recipe.liquidByproduct?.Resolve(world, "Retort liquid byproduct");
+                    if (!retortRecipesDic.ContainsKey(key) && hasAtLeastOneIngredient) retortRecipesDic.Add(key, recipe);
+                }
             }
             hasRegisteredRecipes = true;
         }
@@ -132,12 +139,12 @@ namespace lavoisier
         }
     }
 
-    class RetortRecipe
+    public class RetortRecipe
     {
         public bool Enabled = true;
         public string code = "";
         public string[] setup;
-        public float secondsPerItem = 0.1f;
+        public int ticksPerItem = 1;
         public JsonItemStack liquidInput;
         public JsonItemStack solidInput;
         public JsonItemStack endInput;

@@ -25,7 +25,10 @@ namespace lavoisier
         MeshData oilLampMesh;
 
         public bool isReacting = false;
+        public RetortRecipe reactingRecipe;
+        public int amountToReact = -1;
         public int amountReacted = 0;
+        public int ticksSinceLastReacted = 999999;
 
         public IAlembicEndContainer alembicEndContainer;
 
@@ -51,32 +54,139 @@ namespace lavoisier
 
         public void OnGameTick(float dt)
         {
-            MarkDirty(true);
+            //if (Api.Side != EnumAppSide.Server) return;
 
-            _ = GetApparatusComposition(); // Used to set alembicEndContainer beforehand maybe? Apparently it's needed I guess?
 
-            RetortRecipe recipe = RecipeSystem.matchRecipeRetort(Api.World, inventory[0].Itemstack, inventory[1].Itemstack, GetApparatusComposition().ToArray(), alembicEndContainer);
-
-            if (alembicEndContainer != null) // Handle recipe with end container
+            if (!isReacting) // Check recipes, start reaction
             {
-                
-            }
-            else // Handle self-contained recipe (only makes byproducts)
-            {
+                _ = GetApparatusComposition(); // Used to set alembicEndContainer beforehand maybe? Apparently it's needed I guess?
 
-            }
+                RetortRecipe recipe = RecipeSystem.matchRecipeRetort(Api.World, inventory[0].Itemstack, inventory[1].Itemstack, GetApparatusComposition().ToArray(), alembicEndContainer);
 
-            /*AlembicRetortNeckEntity rtnEntity;
-            if ((rtnEntity = alembicEndContainer as AlembicRetortNeckEntity) != null)
-            {
-                RetortRecipe recipe = RecipeSystem.matchRecipeRetort(Api.World, inventory[0].Itemstack, inventory[1].Itemstack, GetApparatusComposition().ToArray());
                 if (recipe != null)
                 {
-                    alembicEndContainer.TryAddToContainer(recipe.product.ResolvedItemstack);
+                    // Checking stoechiometry
+                    bool isStoechiometric = true;
+                    if (!inventory[0].Empty)
+                    {
+                        isStoechiometric &= inventory[0].Itemstack.StackSize % recipe.liquidInput.ResolvedItemstack.StackSize == 0;
+                        amountToReact = (int)(inventory[0].Itemstack.StackSize / recipe.liquidInput.ResolvedItemstack.StackSize);
+                    }
+                    if (!inventory[1].Empty)
+                    {
+                        
+                        if (amountToReact != -1)
+                        {
+                            isStoechiometric &= inventory[1].Itemstack.StackSize % recipe.solidInput.ResolvedItemstack.StackSize == 0
+                                && inventory[1].Itemstack.StackSize / recipe.solidInput.ResolvedItemstack.StackSize == amountToReact;
+                        }
+                        else
+                        {
+                            isStoechiometric &= inventory[1].Itemstack.StackSize % recipe.solidInput.ResolvedItemstack.StackSize == 0;
+                            amountToReact = inventory[1].Itemstack.StackSize / recipe.solidInput.ResolvedItemstack.StackSize;
+                        }
+                    }
+                    isStoechiometric &= alembicEndContainer?.checkStoechiometry(recipe) ?? true;
 
-                    
+                    if (isStoechiometric && !inventory[2].Empty)
+                    {
+                        isReacting = true;
+                        reactingRecipe = recipe; 
+                    }
                 }
-            }*/
+            }
+            else if (!inventory[2].Empty)// Handle reaction, only with oil lamp present
+            {
+                RetortRecipe recipe = RecipeSystem.matchRecipeRetort(Api.World, inventory[0].Itemstack, inventory[1].Itemstack, GetApparatusComposition().ToArray(), alembicEndContainer);
+
+                if (recipe != reactingRecipe)
+                {
+                    isReacting = false;
+                    alembicEndContainer?.stopDistilling();
+                    commitRecipe();
+                    return;
+                }
+
+                if (ticksSinceLastReacted < reactingRecipe.ticksPerItem)
+                {
+                    ticksSinceLastReacted++;
+                }
+                else
+                {
+                    ticksSinceLastReacted = 0;
+
+                    amountReacted++;
+
+                    bool shouldStillReact = true;
+                    if (!inventory[0].Empty)
+                    {
+                        shouldStillReact &= (inventory[0].TakeOut(reactingRecipe.liquidInput.ResolvedItemstack.StackSize)?.StackSize ?? -1) > 0;
+                        
+                    }
+                    if (!inventory[1].Empty)
+                    {
+                        shouldStillReact &= (inventory[1].TakeOut(reactingRecipe.solidInput.ResolvedItemstack.StackSize)?.StackSize ?? -1) > 0;
+                    }
+
+                    //shouldStillReact = amountReacted >= amountToReact;
+
+                    if (!shouldStillReact) // Gérer la fin de la réaction : byproducts, reset des variables
+                    {
+                        commitRecipe();
+                    }
+                    else
+                    {
+
+                        if (alembicEndContainer != null) // Handle recipe with end container
+                        {
+                            alembicEndContainer.handleRecipe(reactingRecipe);
+                        }
+                        else // Handle self-contained recipe (only makes byproducts)
+                        {
+
+                        }
+                    }
+                }
+            }
+        }
+
+        bool commitRecipe ()
+        {
+            ticksSinceLastReacted = 999999;
+            isReacting = false;
+
+
+            if (reactingRecipe.liquidByproduct != null)
+            {
+                ItemStack liquidByproduct = reactingRecipe.liquidByproduct.ResolvedItemstack.Clone();
+                BlockLiquidContainerBase blcb = Block as BlockLiquidContainerBase;
+                float itemsPerLitre = (Block as BlockLiquidContainerBase).GetContentProps(reactingRecipe.liquidByproduct.ResolvedItemstack)?.ItemsPerLitre ?? 100f;
+                int maxCapacity = (int)((Block as BlockLiquidContainerBase).CapacityLitres * itemsPerLitre);
+                liquidByproduct.StackSize = Math.Min(liquidByproduct.StackSize * amountReacted, maxCapacity);
+                Inventory[0].Itemstack = liquidByproduct;
+            }
+            else
+            {
+                Inventory[0].Itemstack = null;
+            }
+            if (reactingRecipe.solidByproduct != null)
+            {
+                ItemStack solidByproduct = reactingRecipe.solidByproduct.ResolvedItemstack.Clone();
+                solidByproduct.StackSize = Math.Min(solidByproduct.StackSize * amountReacted, solidByproduct.Collectible.MaxStackSize);
+                Inventory[1].Itemstack = solidByproduct;
+            }
+            else
+            {
+                Inventory[1].Itemstack = null;
+            }
+
+            amountToReact = -1;
+            amountReacted = 0;
+            reactingRecipe = null;
+            MarkDirty(true);
+            inventory.MarkSlotDirty(1);
+            inventory.MarkSlotDirty(0);
+            return true;
         }
 
         void inventory_SlotModified(int slotId)
@@ -113,7 +223,7 @@ namespace lavoisier
             base.GetBlockInfo(forPlayer, dsc);
         }
 
-        public bool OnInteract(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)
+        public bool OnInteract(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel, bool onlyOilLamp = false)
         {
             ItemSlot hotbarSlot = byPlayer.InventoryManager.ActiveHotbarSlot;
 
@@ -150,6 +260,9 @@ namespace lavoisier
                     }
                 }
             }
+
+            if (onlyOilLamp) return true;
+
             if (!hotbarSlot.Empty && !(hotbarSlot.Itemstack.Collectible is BlockLiquidContainerTopOpened) && !hotbarSlot.Itemstack.Collectible.Code.Path.StartsWith("alembic"))
             {
                 byPlayer.InventoryManager.ActiveHotbarSlot.TryPutInto(Api.World, inventory[1], 1);
