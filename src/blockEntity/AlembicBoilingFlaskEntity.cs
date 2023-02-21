@@ -28,7 +28,7 @@ namespace lavoisier
         public RetortRecipe reactingRecipe;
         public int amountToReact = -1;
         public int amountReacted = 0;
-        public int ticksSinceLastReacted = 999999;
+        public int ticksSinceLastReacted = 0;
 
         public IAlembicEndContainer alembicEndContainer;
 
@@ -100,6 +100,11 @@ namespace lavoisier
 
                 RetortRecipe recipe = RecipeSystem.matchRecipeRetort(Api.World, inventory[0].Itemstack, inventory[1].Itemstack, GetApparatusComposition().ToArray(), alembicEndContainer);
 
+                if (reactingRecipe == null)
+                {
+                    reactingRecipe = recipe;
+                }
+
                 if (recipe != reactingRecipe)
                 {
                     isReacting = false;
@@ -129,6 +134,7 @@ namespace lavoisier
                         shouldStillReact &= (inventory[1].TakeOut(reactingRecipe.solidInput.ResolvedItemstack.StackSize)?.StackSize ?? -1) > 0;
                     }
 
+                    MarkDirty();
                     //shouldStillReact = amountReacted >= amountToReact;
 
                     if (!shouldStillReact) // Gérer la fin de la réaction : byproducts, reset des variables
@@ -153,11 +159,11 @@ namespace lavoisier
 
         bool commitRecipe ()
         {
-            ticksSinceLastReacted = 999999;
+            ticksSinceLastReacted = 0;
             isReacting = false;
 
 
-            if (reactingRecipe.liquidByproduct != null)
+            if (reactingRecipe?.liquidByproduct != null)
             {
                 ItemStack liquidByproduct = reactingRecipe.liquidByproduct.ResolvedItemstack.Clone();
                 BlockLiquidContainerBase blcb = Block as BlockLiquidContainerBase;
@@ -170,7 +176,7 @@ namespace lavoisier
             {
                 Inventory[0].Itemstack = null;
             }
-            if (reactingRecipe.solidByproduct != null)
+            if (reactingRecipe?.solidByproduct != null)
             {
                 ItemStack solidByproduct = reactingRecipe.solidByproduct.ResolvedItemstack.Clone();
                 solidByproduct.StackSize = Math.Min(solidByproduct.StackSize * amountReacted, solidByproduct.Collectible.MaxStackSize);
@@ -362,14 +368,21 @@ namespace lavoisier
         {
             if (Api != null) loadMesh();
 
-            tree.SetBool("isReacting", isReacting);
+            isReacting = tree.TryGetBool("isReacting") ?? false;
+            amountReacted = tree.TryGetInt("amountReacted") ?? 0;
+            amountToReact = tree.TryGetInt("amountToReact") ?? -1;
+
+            //reactingRecipe = JsonUtil.FromString<RetortRecipe>(tree.GetString("reactingRecipe", ""));
 
             base.FromTreeAttributes(tree, worldAccessForResolve);
         }
 
         public override void ToTreeAttributes(ITreeAttribute tree)
         {
-            isReacting = tree.TryGetBool("isReacting") ?? false;
+            tree.SetBool("isReacting", isReacting);
+            tree.SetInt("amountReacted", amountReacted);
+            tree.SetInt("amountToReact", amountToReact);
+            //tree.SetString("reactingRecipe", JsonUtil.ToString(reactingRecipe));
 
             base.ToTreeAttributes(tree);
         }

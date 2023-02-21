@@ -28,7 +28,7 @@ namespace lavoisier
             base.OnLoaded(api);
         }
 
-        public override byte[] GetLightHsv(IBlockAccessor blockAccessor, BlockPos pos, ItemStack stack = null)
+        /*public override byte[] GetLightHsv(IBlockAccessor blockAccessor, BlockPos pos, ItemStack stack = null)
         {
             if (pos == null) return base.GetLightHsv(blockAccessor, pos, stack);
 
@@ -36,7 +36,7 @@ namespace lavoisier
             if (fe != null) return ((!fe.Inventory[2].Empty) ? (new byte[] { 4, 2, 8 }) : base.GetLightHsv(blockAccessor, pos, stack));
 
             return base.GetLightHsv(blockAccessor, pos, stack);
-        }
+        }*/
 
         public override bool OnBlockInteractStart(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)
         {

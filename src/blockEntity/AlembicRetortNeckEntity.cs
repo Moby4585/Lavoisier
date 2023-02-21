@@ -237,11 +237,15 @@ namespace lavoisier
             {
                 genBucketMesh();
             }
+            lastReceivedDistillate = (ItemStack)tree.GetItemstack("lastReceivedDistillate");
+            lastReceivedDistillate?.ResolveBlockOrItem(worldForResolving);
         }
 
         public override void ToTreeAttributes(ITreeAttribute tree)
         {
             base.ToTreeAttributes(tree);
+
+            tree.SetItemstack("lastReceivedDistillate", lastReceivedDistillate);
         }
 
         bool IAlembicEndContainer.handleRecipe(RetortRecipe recipe)
@@ -249,6 +253,7 @@ namespace lavoisier
             //if (!recipe.product.Resolve(Api.World, "Resolving retort neck product")) return false;
 
             if (Api.Side != EnumAppSide.Server) { return false; }
+
             ItemStack fromStack = recipe.product.ResolvedItemstack.Clone();
 
             //Handle dropping product into the bowl
@@ -266,9 +271,8 @@ namespace lavoisier
                         (Inventory[0].Itemstack.Collectible as BlockLiquidContainerBase).SetContent(Inventory[0].Itemstack, content);*/
                         lastReceivedDistillate = fromStack;
                         //genBucketMesh();
-                        
-                        //inventory[0].MarkDirty();
                         MarkDirty(true);
+                        //inventory[0].MarkDirty();
                         return true;
                     }
                     else
