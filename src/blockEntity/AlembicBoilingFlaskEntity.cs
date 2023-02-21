@@ -54,8 +54,7 @@ namespace lavoisier
 
         public void OnGameTick(float dt)
         {
-            //if (Api.Side != EnumAppSide.Server) return;
-
+            if (Api.Side != EnumAppSide.Server) return;
 
             if (!isReacting) // Check recipes, start reaction
             {
@@ -97,6 +96,8 @@ namespace lavoisier
             }
             else if (!inventory[2].Empty)// Handle reaction, only with oil lamp present
             {
+                MarkDirty(true);
+
                 RetortRecipe recipe = RecipeSystem.matchRecipeRetort(Api.World, inventory[0].Itemstack, inventory[1].Itemstack, GetApparatusComposition().ToArray(), alembicEndContainer);
 
                 if (recipe != reactingRecipe)
@@ -361,11 +362,15 @@ namespace lavoisier
         {
             if (Api != null) loadMesh();
 
+            tree.SetBool("isReacting", isReacting);
+
             base.FromTreeAttributes(tree, worldAccessForResolve);
         }
 
         public override void ToTreeAttributes(ITreeAttribute tree)
         {
+            isReacting = tree.TryGetBool("isReacting") ?? false;
+
             base.ToTreeAttributes(tree);
         }
 

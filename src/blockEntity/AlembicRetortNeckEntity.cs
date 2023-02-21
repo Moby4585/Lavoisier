@@ -246,9 +246,10 @@ namespace lavoisier
 
         bool IAlembicEndContainer.handleRecipe(RetortRecipe recipe)
         {
-            if (!recipe.product.Resolve(Api.World, "Resolving retort neck product")) return false;
+            //if (!recipe.product.Resolve(Api.World, "Resolving retort neck product")) return false;
 
-            ItemStack fromStack = recipe.product.ResolvedItemstack;
+            if (Api.Side != EnumAppSide.Server) { return false; }
+            ItemStack fromStack = recipe.product.ResolvedItemstack.Clone();
 
             //Handle dropping product into the bowl
             ItemStack bucketStack = inventory[0].Itemstack;
@@ -257,7 +258,7 @@ namespace lavoisier
                 if (bucketStack.Collectible as BlockLiquidContainerTopOpened != null)
                 {
                     BlockLiquidContainerBase bucket = bucketStack.Collectible as BlockLiquidContainerBase;
-                    int litresTransferred = (inventory[0].Itemstack.Collectible as BlockLiquidContainerBase).TryPutLiquid(inventory[0].Itemstack, fromStack.Clone(), 9999f);
+                    int litresTransferred = (inventory[0].Itemstack.Collectible as BlockLiquidContainerBase).TryPutLiquid(inventory[0].Itemstack, fromStack, 9999f);
                     if (litresTransferred > 0f )
                     {
                         /*ItemStack content = (Inventory[0].Itemstack.Collectible as BlockLiquidContainerBase).GetContent(Inventory[0].Itemstack);
@@ -280,7 +281,7 @@ namespace lavoisier
             else
             {
                 //if (bucketMesh != null) bucketMesh.Clear();
-                MarkDirty(true);
+                //MarkDirty(true);
                 //lastReceivedDistillate = null;
             }
             return false;
@@ -294,6 +295,7 @@ namespace lavoisier
         public void stopDistilling()
         {
             lastReceivedDistillate = null;
+            MarkDirty(true);
         }
 
         public bool checkStoechiometry(RetortRecipe recipe)
