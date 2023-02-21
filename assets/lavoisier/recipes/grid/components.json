@@ -1,0 +1,119 @@
+﻿[
+  {
+    "ingredientPattern": "CCC,W_W",
+    "width": 3,
+    "height": 2,
+    "ingredients": {
+      "C": {
+        "type": "item",
+        "code": "game:chutesection-copper",
+        "quantity": 1
+      },
+      "W": {
+        "type": "item",
+        "code": "game:wrench-iron"
+      }
+    },
+    "output": {
+      "type": "block",
+      "code": "lavoisier:alembiccomponent-condenser-north",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "CSC,WHW",
+    "width": 3,
+    "height": 2,
+    "ingredients": {
+      "C": {
+        "type": "item",
+        "code": "game:chutesection-copper",
+        "quantity": 1
+      },
+      "W": {
+        "type": "item",
+        "code": "game:wrench-iron"
+      },
+      "S": {
+        "type": "item",
+        "code": "game:ingot-silver"
+      },
+      "H": {
+        "type": "item",
+        "code": "game:chisel-*",
+        "isTool": true,
+        "toolDurabilityCost": 1
+      }
+    },
+    "output": {
+      "type": "block",
+      "code": "lavoisier:alembiccomponent-catalyser-north",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "SCC,ICC",
+    "width": 3,
+    "height": 2,
+    "ingredients": {
+      "C": {
+        "type": "item",
+        "code": "game:metalplate-copper"
+      },
+      "S": {
+        "type": "item",
+        "code": "game:solderingiron",
+        "isTool": true,
+        "toolDurabilityCost": 1
+      },
+      "I": {
+        "type": "item",
+        "code": "game:solderbar-*",
+        "quantity": 2,
+        "name": "mat",
+        "allowedVariants": [ "tin", "silver" ]
+      }
+    },
+    "output": {
+      "type": "block",
+      "code": "lavoisier:alembiccomponent-reactionchamber-north",
+      "quantity": 1
+    }
+  },
+  {
+    "ingredientPattern": "SC,IC,HC",
+    "width": 2,
+    "height": 3,
+    "ingredients": {
+      "C": {
+        "type": "item",
+        "code": "game:chutesection-copper",
+        "quantity": 1
+      },
+      "S": {
+        "type": "item",
+        "code": "game:solderingiron",
+        "isTool": true,
+        "toolDurabilityCost": 1
+      },
+      "I": {
+        "type": "item",
+        "code": "game:solderbar-*",
+        "quantity": 2,
+        "name": "mat",
+        "allowedVariants": [ "tin", "silver" ]
+      },
+      "H": {
+        "type": "item",
+        "code": "game:chisel-*",
+        "isTool": true,
+        "toolDurabilityCost": 1
+      }
+    },
+    "output": {
+      "type": "block",
+      "code": "lavoisier:alembiccomponent-refluxvertical-north",
+      "quantity": 1
+    }
+  }
+]

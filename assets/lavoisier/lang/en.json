@@ -2,10 +2,11 @@
   "block-alembicboilingflask": "Boiling flask",
   "block-alembiccomponent-refluxvertical-*": "Reflux column",
   "block-alembiccomponent-reactionchamber-*": "Reaction chamber",
-  "block-alembiccomponent-catalyser-*": "Catalysis chamber",
+  "block-alembiccomponent-catalyser-*": "Catalyser",
   "block-alembiccomponent-condenser-*": "Condenser",
   "block-alembicretortneck-*":  "Retort neck",
 
   "game:tabname-chemistry": "Chemistry",
-  "recipesloaded": "Unlocking the secrets of the elements..."
+  "recipesloaded": "It reacts...",
+  "recipesresolved":  "Complex formulas..."
 }

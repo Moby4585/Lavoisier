@@ -33,7 +33,7 @@ namespace lavoisier
             this.api = sapi;
 
             RecipeSystem.RegisterRetortRecipes(api.World);
-            sapi.World.Logger.StoryEvent(Lang.Get("Complex formulas..."));
+            sapi.World.Logger.StoryEvent(Lang.Get("lavoisier:recipesresolved"));
         }
     }
 }

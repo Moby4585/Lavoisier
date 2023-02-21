@@ -82,27 +82,36 @@ namespace lavoisier
                 }
                 if (!be.Inventory[2].Empty)
                 {
-                    info += ("\n\nHas oil lamp");
+                    //info += ("\nHas oil lamp");
                     //info += "\n" + be.Inventory[2].Itemstack.Collectible.Code.ToString();
                 }
+
+                if (be.isReacting)
+                {
+                    info += "\n\nReacting! Do not disturb!";
+                    info += "\n" + ((int)((float)be.amountReacted / (float)be.amountToReact * 100f)).ToString() + "% reacted";
+                }
+
                 string[] setup = be.GetApparatusComposition().ToArray<string>();
                 RetortRecipe rec;
                 if ((rec = RecipeSystem.matchRecipeRetort(world, (be.Inventory[0]?.Itemstack) ?? null, (be.Inventory[1]?.Itemstack) ?? null, setup)) != null) {
                     info += be.isReacting ? "\n\nCreating: " : "\n\nWill create: ";
                     info += Lang.Get("{0}", rec.product.ResolvedItemstack.GetName());
+
+                    if (be.Inventory[2].Empty) info += "\nAdd an oil lamp to " + (be.isReacting ? "resume" : "start") + " reacting";
                 }
 
                 /*AlembicRetortNeckEntity rtnEntity;
                 if ((rtnEntity = be.alembicEndContainer as AlembicRetortNeckEntity) != null)
                 {
                     info += "\n" + ((rtnEntity.Inventory[0].Itemstack?.Collectible as BlockLiquidContainerBase)?.GetContent(rtnEntity.Inventory[0].Itemstack)?.Collectible.Code.ToString()) ?? "";
-                }*/
+                }
                 info += "\nisReacting: " + be.isReacting.ToString() + " amountReacted: " + be.amountReacted.ToString() + " amountToReact: " + be.amountToReact.ToString();
                 if (be.reactingRecipe != null) {
                     info += "\n\nLiquidInput: " + be.reactingRecipe.liquidInput?.ResolvedItemstack?.StackSize;
                     info += "\nSolidInput: " + be.reactingRecipe.solidInput?.ResolvedItemstack?.StackSize;
                     info += "\nOutput: " + be.reactingRecipe.product?.ResolvedItemstack?.StackSize;
-                }
+                }*/
             }
 
             return info;

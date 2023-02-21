@@ -1,0 +1,34 @@
+﻿{
+  "ingredientPattern": "CCC,SWI",
+  "width": 3,
+  "height": 2,
+  "ingredients": {
+    "C": {
+      "type": "item",
+      "code": "game:chutesection-copper",
+      "quantity": 1
+    },
+    "S": {
+      "type": "item",
+      "code": "game:solderingiron",
+      "isTool": true,
+      "toolDurabilityCost": 1
+    },
+    "I": {
+      "type": "item",
+      "code": "game:solderbar-*",
+      "quantity": 2,
+      "name": "mat",
+      "allowedVariants": [ "tin", "silver" ]
+    },
+    "W": {
+      "type": "item",
+      "code": "game:wrench-iron"
+    }
+  },
+  "output": {
+    "type": "block",
+    "code": "lavoisier:alembicretortneck-north",
+    "quantity": 1
+  }
+}

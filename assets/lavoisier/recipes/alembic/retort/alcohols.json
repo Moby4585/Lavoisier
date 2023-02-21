@@ -33,5 +33,740 @@
 			"code": "game:alcoholportion",
 			"stackSize": 1
 		}
+	},
+	{
+		"code": "distillingmeadcider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-mead",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-mead",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillingmeadspirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-mead",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "distillingspeltcider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-spelt",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-spelt",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillingspeltspirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-spelt",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "distillingricecider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-rice",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-rice",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillingricespirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-rice",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "distillingryecider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-rye",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-rye",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillingryespirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-rye",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "distillingamaranthcider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-amaranth",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-amaranth",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillingamaranthspirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-amaranth",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "distillingcassavacider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-cassava",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-cassava",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillingcassavaspirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-cassava",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "distillingblueberrycider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-blueberry",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-blueberry",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillingblueberryspirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-blueberry",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "distillingcranberrycider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-cranberry",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-cranberry",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillingcranberryspirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-cranberry",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "distillingredcurrantcider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-redcurrant",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-redcurrant",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillingredcurrantspirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-redcurrant",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "distillingwhitecurrantcider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-whitecurrant",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-whitecurrant",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillingwhitecurrantspirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-whitecurrant",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "distillingblackcurrantcider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-blackcurrant",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-blackcurrant",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillingblackcurrantspirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-blackcurrant",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "distillingsaguarocider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-saguaro",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-saguaro",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillingsaguarospirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-saguaro",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "distillingpineapplecider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-pineapple",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-pineapple",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillingpineapplespirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-pineapple",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "distillingcherrycider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-cherry",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-cherry",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillingcherryspirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-cherry",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "distillingpeachcider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-peach",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-peach",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillingpeachspirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-peach",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "distillingpearcider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-pear",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-pear",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillingpearspirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-pear",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "distillingorangecider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-orange",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-orange",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillingorangespirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-orange",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "distillingmangocider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-mango",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-mango",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillingmangospirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-mango",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "distillingbreadfruitcider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-breadfruit",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-breadfruit",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillingbreadfruitspirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-breadfruit",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "distillinglycheecider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-lychee",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-lychee",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillinglycheespirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-lychee",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "distillingpomegranatecider",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:ciderportion-pomegranate",
+			"stackSize": 10
+		},
+		"product": {
+			"type": "item",
+			"code": "game:spiritportion-pomegranate",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 9
+		}
+	},
+	{
+		"code": "distillingpomegranatespirit",
+		"setup": [ "alembicboilingflask", "alembicretortneck" ],
+		"ticksPerItem": 20,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:spiritportion-pomegranate",
+			"stackSize": 2
+		},
+		"product": {
+			"type": "item",
+			"code": "game:alcoholportion",
+			"stackSize": 1
+		}
 	}
 ]

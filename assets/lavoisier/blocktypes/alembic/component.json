@@ -8,7 +8,7 @@
   "variantgroups": [
     {
       "code": "type",
-      "states": [ "refluxvertical", "reactionchamber", "catalyst", "condenser" ]
+      "states": [ "refluxvertical", "reactionchamber", "catalyser", "condenser" ]
     },
     {
       "code": "side",
@@ -65,6 +65,38 @@
         "x2": 0.8,
         "y2": 0.8,
         "z2": 0.8
+      }
+    ],
+    "*-condenser-*": [
+      {
+        "x1": 0.4375,
+        "y1": 0,
+        "z1": 0.5,
+        "x2": 0.5625,
+        "y2": 0.6875,
+        "z2": 1.3125,
+        "rotateYByType": {
+          "*-west": 270,
+          "*-east": 90,
+          "*-south": 0,
+          "*-north": 180
+        }
+      }
+    ],
+    "*-catalyser-*": [
+      {
+        "x1": 0.4375,
+        "y1": 0,
+        "z1": 0.5,
+        "x2": 0.5625,
+        "y2": 0.6875,
+        "z2": 1.3125,
+        "rotateYByType": {
+          "*-west": 270,
+          "*-east": 90,
+          "*-south": 0,
+          "*-north": 180
+        }
       }
     ],
     "*": [

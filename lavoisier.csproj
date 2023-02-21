@@ -81,8 +81,14 @@
   <ItemGroup>
     <Content Include="assets\lavoisier\blocktypes\alembic\component.json" />
     <Content Include="assets\lavoisier\blocktypes\alembic\retortneck.json" />
+    <None Include="assets\lavoisier\blocktypes\alembic\condenser.json" />
     <None Include="assets\lavoisier\lang\en.json" />
     <None Include="assets\lavoisier\recipes\alembic\retort\alcohols.json" />
+    <None Include="assets\lavoisier\recipes\grid\components.json" />
+    <None Include="assets\lavoisier\recipes\grid\retortneck.json" />
+    <None Include="assets\lavoisier\recipes\grid\boilingflask.json" />
+    <None Include="assets\lavoisier\shapes\block\alembic\catalyser.json" />
+    <None Include="assets\lavoisier\shapes\block\alembic\condenser.json" />
     <None Include="assets\lavoisier\shapes\block\alembic\reactionchamber.json" />
     <None Include="assets\lavoisier\shapes\block\alembic\refluxvertical.json" />
     <None Include="assets\lavoisier\shapes\block\alembic\retortneck.json" />
