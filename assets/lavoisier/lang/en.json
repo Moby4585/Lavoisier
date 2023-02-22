@@ -4,7 +4,8 @@
   "block-alembiccomponent-reactionchamber-*": "Reaction chamber",
   "block-alembiccomponent-catalyser-*": "Catalyser",
   "block-alembiccomponent-condenser-*": "Condenser",
-  "block-alembicretortneck-*":  "Retort neck",
+  "block-alembicretortneck-*": "Retort neck",
+  "block-alembicdissolver-*":  "Dissolver",
 
   "game:tabname-chemistry": "Chemistry",
   "recipesloaded": "It reacts...",

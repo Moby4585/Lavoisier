@@ -1,31 +1,41 @@
 [
 	{
 		"code": "makingnitricacid",
-		"setup": [ "alembicboilingflask", "alembiccomponent-catalyser", "alembiccomponent-reactionchamber", "alembicretortneck" ],
+		"setup": [ "alembicboilingflask", "alembiccomponent-catalyser", "alembiccomponent-reactionchamber", "alembicdissolver" ],
 		"ticksPerItem": 10,
 		"liquidInput": {
 			"type": "item",
 			"code": "chemistrylib:ammoniaportion",
 			"stackSize": 2
 		},
-		"solidInput": {
+		"endInput": {
 			"type": "item",
-			"code": "game:quicklime",
+			"code": "game:waterportion",
 			"stackSize": 1
 		},
 		"product": {
 			"type": "item",
 			"code": "chemistrylib:nitricacidportion",
 			"stackSize": 1
-		},
-		"liquidByproduct": {
+		}
+	},
+	{
+		"code": "dissolversolidproducttest",
+		"setup": [ "alembicboilingflask", "alembiccomponent-catalyser", "alembiccomponent-reactionchamber", "alembicdissolver" ],
+		"ticksPerItem": 10,
+		"liquidInput": {
 			"type": "item",
-			"code": "game:waterportion",
+			"code": "chemistrylib:ammoniaportion",
+			"stackSize": 2
+		},
+		"endInput": {
+			"type": "item",
+			"code": "chemistrylib:nitricacidportion",
 			"stackSize": 1
 		},
-		"solidByproduct": {
+		"product": {
 			"type": "item",
-			"code": "game:compost",
+			"code": "chemistrylib:glauberssalt",
 			"stackSize": 1
 		}
 	},

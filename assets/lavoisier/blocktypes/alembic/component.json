@@ -8,7 +8,7 @@
   "variantgroups": [
     {
       "code": "type",
-      "states": [ "refluxvertical", "reactionchamber", "catalyser", "condenser", "dissolver" ]
+      "states": [ "refluxvertical", "reactionchamber", "catalyser", "condenser" ]
     },
     {
       "code": "side",
@@ -91,22 +91,6 @@
         "x2": 0.5625,
         "y2": 0.6875,
         "z2": 1.1875,
-        "rotateYByType": {
-          "*-west": 270,
-          "*-east": 90,
-          "*-south": 0,
-          "*-north": 180
-        }
-      }
-    ],
-    "*-dissolver-*": [
-      {
-        "x1": 0.3125,
-        "y1": 0,
-        "z1": 0.3125,
-        "x2": 0.6875,
-        "y2": 0.4375,
-        "z2": 0.6875,
         "rotateYByType": {
           "*-west": 270,
           "*-east": 90,

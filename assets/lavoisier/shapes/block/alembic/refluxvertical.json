@@ -13,98 +13,58 @@
 	"elements": [
 		{
 			"name": "Cube1",
-			"from": [ 7.25, -3.0, 7.25 ],
-			"to": [ 8.75, 13.0, 8.75 ],
+			"from": [ 7.25, -3.0, 7.25 ], 
+			"to": [ 8.75, 13.0, 8.75 ], 
 			"rotationOrigin": [ 7.0, -3.0, 7.0 ],
 			"faces": {
-				"north": {
-					"texture": "#alembic_plate",
-					"uv": [ 0.0, 0.0, 1.5, 16.0 ]
-				},
-				"east": {
-					"texture": "#alembic_plate",
-					"uv": [ 0.0, 0.0, 1.5, 16.0 ]
-				},
-				"south": {
-					"texture": "#alembic_plate",
-					"uv": [ 0.0, 0.0, 1.5, 16.0 ]
-				},
-				"west": {
-					"texture": "#alembic_plate",
-					"uv": [ 0.0, 0.0, 1.5, 16.0 ]
-				},
-				"up": {
-					"texture": "#alembic_plate",
-					"uv": [ 2.5, 2.0, 4.0, 3.5 ]
-				},
-				"down": {
-					"texture": "#alembic_plate",
-					"uv": [ 2.5, 1.5, 4.0, 3.0 ]
-				}
+				"north": { "texture": "#alembic_plate", "uv": [ 0.0, 0.0, 1.5, 16.0 ] },
+				"east": { "texture": "#alembic_plate", "uv": [ 0.0, 0.0, 1.5, 16.0 ] },
+				"south": { "texture": "#alembic_plate", "uv": [ 0.0, 0.0, 1.5, 16.0 ] },
+				"west": { "texture": "#alembic_plate", "uv": [ 0.0, 0.0, 1.5, 16.0 ] },
+				"up": { "texture": "#alembic_plate", "uv": [ 2.5, 2.0, 4.0, 3.5 ] },
+				"down": { "texture": "#alembic_plate", "uv": [ 2.5, 1.5, 4.0, 3.0 ] }
 			}
 		},
 		{
 			"name": "Cube2",
-			"from": [ 6.5, 0.0, 6.5 ],
-			"to": [ 9.5, 12.0, 9.5 ],
+			"from": [ 6.5, 0.0, 6.5 ], 
+			"to": [ 9.5, 12.0, 9.5 ], 
 			"rotationOrigin": [ 6.0, 0.0, 0.0 ],
 			"faces": {
-				"north": {
-					"texture": "#alembic_plate",
-					"uv": [ 13.0, 0.0, 16.0, 12.0 ]
-				},
-				"east": {
-					"texture": "#alembic_plate",
-					"uv": [ 13.0, 0.0, 16.0, 12.0 ]
-				},
-				"south": {
-					"texture": "#alembic_plate",
-					"uv": [ 13.0, 0.0, 16.0, 12.0 ]
-				},
-				"west": {
-					"texture": "#alembic_plate",
-					"uv": [ 13.0, 0.0, 16.0, 12.0 ]
-				},
-				"up": {
-					"texture": "#alembic_plate",
-					"uv": [ 13.0, 13.0, 16.0, 16.0 ]
-				},
-				"down": {
-					"texture": "#alembic_plate",
-					"uv": [ 13.0, 13.0, 16.0, 16.0 ]
-				}
+				"north": { "texture": "#alembic_plate", "uv": [ 13.0, 0.0, 16.0, 12.0 ] },
+				"east": { "texture": "#alembic_plate", "uv": [ 13.0, 0.0, 16.0, 12.0 ] },
+				"south": { "texture": "#alembic_plate", "uv": [ 13.0, 0.0, 16.0, 12.0 ] },
+				"west": { "texture": "#alembic_plate", "uv": [ 13.0, 0.0, 16.0, 12.0 ] },
+				"up": { "texture": "#alembic_plate", "uv": [ 13.0, 13.0, 16.0, 16.0 ] },
+				"down": { "texture": "#alembic_plate", "uv": [ 13.0, 13.0, 16.0, 16.0 ] }
 			}
 		},
 		{
 			"name": "Cube3",
-			"from": [ 7.75, 10.25, 5.5 ],
-			"to": [ 8.25, 10.75, 6.5 ],
+			"from": [ 7.75, 10.25, 5.5 ], 
+			"to": [ 8.25, 10.75, 6.5 ], 
 			"rotationOrigin": [ 5.5, 10.0, 7.5 ],
 			"faces": {
-				"north": {
-					"texture": "#alembic_plate",
-					"uv": [ 5.0, 13.5, 5.5, 14.0 ]
-				},
-				"east": {
-					"texture": "#alembic_plate",
-					"uv": [ 5.5, 13.5, 6.5, 14.0 ]
-				},
-				"south": {
-					"texture": "#alembic_plate",
-					"uv": [ 5.5, 13.5, 6.0, 14.0 ]
-				},
-				"west": {
-					"texture": "#alembic_plate",
-					"uv": [ 5.5, 14.0, 6.5, 14.5 ]
-				},
-				"up": {
-					"texture": "#alembic_plate",
-					"uv": [ 0.0, 0.0, 0.5, 1.0 ]
-				},
-				"down": {
-					"texture": "#alembic_plate",
-					"uv": [ 5.0, 13.0, 5.5, 14.0 ]
-				}
+				"north": { "texture": "#alembic_plate", "uv": [ 5.0, 13.5, 5.5, 14.0 ] },
+				"east": { "texture": "#alembic_plate", "uv": [ 5.5, 13.5, 6.5, 14.0 ] },
+				"south": { "texture": "#alembic_plate", "uv": [ 5.5, 13.5, 6.0, 14.0 ] },
+				"west": { "texture": "#alembic_plate", "uv": [ 5.5, 14.0, 6.5, 14.5 ] },
+				"up": { "texture": "#alembic_plate", "uv": [ 0.0, 0.0, 0.5, 1.0 ] },
+				"down": { "texture": "#alembic_plate", "uv": [ 5.0, 13.0, 5.5, 14.0 ] }
+			}
+		},
+		{
+			"name": "Cube4",
+			"from": [ 7.25, -6.0, 7.25 ], 
+			"to": [ 8.75, -3.0, 8.75 ], 
+			"rotationOrigin": [ 7.0, -6.0, 7.0 ],
+			"faces": {
+				"north": { "texture": "#alembic_plate", "uv": [ 6.0, 7.0, 7.5, 10.0 ] },
+				"east": { "texture": "#alembic_plate", "uv": [ 6.0, 4.0, 7.5, 7.0 ] },
+				"south": { "texture": "#alembic_plate", "uv": [ 6.5, 10.0, 8.0, 13.0 ] },
+				"west": { "texture": "#alembic_plate", "uv": [ 7.5, 7.0, 9.0, 10.0 ] },
+				"up": { "texture": "#alembic_plate", "uv": [ 6.0, 6.0, 7.5, 7.5 ] },
+				"down": { "texture": "#alembic_plate", "uv": [ 6.5, 9.5, 8.0, 11.0 ] }
 			}
 		}
 	]}

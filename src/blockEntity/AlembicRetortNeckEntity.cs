@@ -252,6 +252,9 @@ namespace lavoisier
         {
             //if (!recipe.product.Resolve(Api.World, "Resolving retort neck product")) return false;
 
+            AssetLocation sound = new AssetLocation("game", "sounds/environment/drip2");
+            Api.World.PlaySoundAt(sound, Pos.X, Pos.Y, Pos.Z, randomizePitch: true);
+
             if (Api.Side != EnumAppSide.Server) { return false; }
 
             ItemStack fromStack = recipe.product.ResolvedItemstack.Clone();

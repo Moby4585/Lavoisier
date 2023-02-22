@@ -94,7 +94,7 @@ namespace lavoisier
 
                 string[] setup = be.GetApparatusComposition().ToArray<string>();
                 RetortRecipe rec;
-                if ((rec = RecipeSystem.matchRecipeRetort(world, (be.Inventory[0]?.Itemstack) ?? null, (be.Inventory[1]?.Itemstack) ?? null, setup)) != null) {
+                if ((rec = RecipeSystem.matchRecipeRetort(world, (be.Inventory[0]?.Itemstack) ?? null, (be.Inventory[1]?.Itemstack) ?? null, setup, be.alembicEndContainer)) != null) {
                     info += be.isReacting ? "\n\nCreating: " : "\n\nWill create: ";
                     info += Lang.Get("{0}", rec.product?.ResolvedItemstack.GetName() ?? "Byproducts");
 

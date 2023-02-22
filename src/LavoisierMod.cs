@@ -18,6 +18,8 @@ namespace lavoisier
             api.RegisterBlockEntityClass("AlembicBoilingFlaskEntity", typeof(AlembicBoilingFlaskEntity));
             api.RegisterBlockClass("AlembicRetortNeck", typeof(AlembicRetortNeck));
             api.RegisterBlockEntityClass("AlembicRetortNeckEntity", typeof(AlembicRetortNeckEntity));
+            api.RegisterBlockClass("AlembicDissolver", typeof(AlembicDissolver));
+            api.RegisterBlockEntityClass("AlembicDissolverEntity", typeof(AlembicDissolverEntity));
 
             RecipeSystem.LoadRetortRecipes(api);
         }

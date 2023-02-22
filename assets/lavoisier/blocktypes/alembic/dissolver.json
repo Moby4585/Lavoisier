@@ -1,0 +1,86 @@
+{
+  "code": "alembicdissolver",
+  "class": "AlembicDissolver",
+  "entityClass": "AlembicDissolverEntity",
+  "attributes": {
+    "liquidContainerProps": {
+      "capacityLitres": 3,
+      "emptyShapeLoc": "shapes/block/alembic/dissolver",
+      "opaqueContentShapeLoc": "shapes/block/alembic/content/dissolver-content",
+      "liquidContentShapeLoc": "shapes/block/alembic/content/dissolver-content",
+      "liquidMaxYTranslate": 0.375
+    }
+  },
+  "behaviors": [
+    {
+      "name": "Unstable"
+    },
+    {
+      "name": "HorizontalOrientable"
+    }
+  ],
+  "variantgroups": [
+    {
+      "code": "side",
+      "loadFromProperties": "abstract/horizontalorientation"
+    }
+  ],
+  "creativeinventory": {
+    "general": [ "*-north" ],
+    "chemistry": [ "*-north" ]
+  },
+  "blockmaterial": "Metal",
+  "drawtype": "json",
+  "shapebytype": {
+    "*-west": {
+      "base": "block/alembic/dissolver",
+      "rotateY": 270
+    },
+    "*-east": {
+      "base": "block/alembic/dissolver",
+      "rotateY": 90
+    },
+    "*-south": {
+      "base": "block/alembic/dissolver",
+      "rotateY": 0
+    },
+    "*-north": {
+      "base": "block/alembic/dissolver",
+      "rotateY": 180
+    }
+  },
+  "textures": {
+    "iron1": { "base": "game:block/metal/sheet/iron1" },
+    "alambic_rond": { "base": "lavoisier:block/alembic/alembic_round" }
+  },
+  "sidesolid": {
+    "all": "false"
+  },
+  "sideopaque": {
+    "all": "false"
+  },
+  "lightAbsorption": 0,
+  "collisionSelectionBoxesByType": {
+    "*": [
+      {
+        "x1": 0.3125,
+        "y1": 0,
+        "z1": 0.3125,
+        "x2": 0.6875,
+        "y2": 0.4375,
+        "z2": 0.6875,
+        "rotateYByType": {
+          "*-west": 270,
+          "*-east": 90,
+          "*-south": 0,
+          "*-north": 180
+        }
+      }
+    ]
+  },
+  "resistance": 3.5,
+  "sounds": {
+    "place": "game:block/anvil",
+    "walk": "game:walk/stone"
+  }
+}

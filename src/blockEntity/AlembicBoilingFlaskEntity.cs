@@ -101,7 +101,10 @@ namespace lavoisier
             {
                 MarkDirty(true);
 
-                Api.World.PlaySoundAt(bubbleSound, Pos.X, Pos.Y, Pos.Z, randomizePitch: true) ;
+                if (Api.World.Rand.NextDouble() <= 0.5f)
+                {
+                    Api.World.PlaySoundAt(bubbleSound, Pos.X, Pos.Y, Pos.Z, randomizePitch: true, range: 16, volume: 0.5f);
+                }
 
                 RetortRecipe recipe = RecipeSystem.matchRecipeRetort(Api.World, inventory[0].Itemstack, inventory[1].Itemstack, GetApparatusComposition().ToArray(), alembicEndContainer);
 
@@ -249,12 +252,13 @@ namespace lavoisier
                     (byPlayer as IClientPlayer)?.TriggerFpAnimation(EnumHandInteract.HeldItemInteract);
 
                     AssetLocation sound = inventory[2].Itemstack?.Block?.Sounds?.Place;
-                    Api.World.PlaySoundAt(sound != null ? sound : new AssetLocation("sounds/player/build"), byPlayer.Entity, byPlayer, true, 16);
+                    Api.World.PlaySoundAt(sound != null ? sound : new AssetLocation("game", "sounds/player/build"), byPlayer.Entity, byPlayer, true, 16);
 
                 }
                 else if (!inventory[1].Empty)
                 {
                     inventory[1].TryPutInto(Api.World, byPlayer.InventoryManager.ActiveHotbarSlot, inventory[1].Itemstack.StackSize);
+                    Api.World.PlaySoundAt(new AssetLocation("game", "sounds/effect/squish1"), byPlayer.Entity, byPlayer, true, 16);
                 }
                 return true;
             }
@@ -283,6 +287,7 @@ namespace lavoisier
             if (!hotbarSlot.Empty && !(hotbarSlot.Itemstack.Collectible is BlockLiquidContainerTopOpened) && !hotbarSlot.Itemstack.Collectible.Code.Path.StartsWith("alembic"))
             {
                 byPlayer.InventoryManager.ActiveHotbarSlot.TryPutInto(Api.World, inventory[1], 1);
+                Api.World.PlaySoundAt(new AssetLocation("game", "sounds/effect/squish1"), Pos.X, Pos.Y, Pos.Z, byPlayer, true, 16);
                 return true;
             }
             return false;

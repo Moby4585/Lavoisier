@@ -62,6 +62,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="src\blockEntity\AlembicDissolverEntity.cs" />
+    <Compile Include="src\block\AlembicDissolver.cs" />
     <Compile Include="src\util\IAlembicEndContainer.cs" />
     <Compile Include="src\util\RecipeLoader.cs" />
     <Compile Include="src\util\RecipeSystem.cs" />
@@ -82,6 +84,7 @@
   <ItemGroup>
     <Content Include="assets\lavoisier\blocktypes\alembic\component.json" />
     <Content Include="assets\lavoisier\blocktypes\alembic\retortneck.json" />
+    <Content Include="assets\lavoisier\blocktypes\alembic\dissolver.json" />
     <None Include="assets\lavoisier\lang\en.json" />
     <None Include="assets\lavoisier\recipes\alembic\retort\chemistrylib.json" />
     <None Include="assets\lavoisier\recipes\alembic\retort\alcohols.json" />
@@ -90,6 +93,7 @@
     <None Include="assets\lavoisier\recipes\grid\boilingflask.json" />
     <None Include="assets\lavoisier\shapes\block\alembic\catalyser.json" />
     <None Include="assets\lavoisier\shapes\block\alembic\condenser.json" />
+    <None Include="assets\lavoisier\shapes\block\alembic\content\dissolver-content.json" />
     <None Include="assets\lavoisier\shapes\block\alembic\dissolver.json" />
     <None Include="assets\lavoisier\shapes\block\alembic\reactionchamber.json" />
     <None Include="assets\lavoisier\shapes\block\alembic\refluxvertical.json" />
