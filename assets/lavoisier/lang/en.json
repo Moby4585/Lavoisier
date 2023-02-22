@@ -8,5 +8,7 @@
 
   "game:tabname-chemistry": "Chemistry",
   "recipesloaded": "It reacts...",
-  "recipesresolved":  "Complex formulas..."
+  "recipesresolved": "Complex formulas...",
+
+  "blockinfo-byproducts":  "Byproducts"
 }

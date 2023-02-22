@@ -1,0 +1,150 @@
+{
+	"editor": {
+		"allAngles": false,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+		"alembic_plate": "lavoisier:block/alembic/alembic_plate",
+		"alembic_chamber": "lavoisier:block/alembic/alembic_chamber"
+	},
+	"elements": [
+		{
+			"name": "up-tube",
+			"from": [ 7.0, 0.9, 11.1 ], 
+			"to": [ 18.0, 1.9, 12.1 ], 
+			"rotationOrigin": [ 7.5, 0.9, 12.1 ],
+			"rotationY": -90.0,
+			"rotationZ": 67.5,
+			"faces": {
+				"north": { "texture": "#alembic_plate", "uv": [ 2.0, 3.5, 13.0, 4.5 ] },
+				"east": { "texture": "#alembic_plate", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
+				"south": { "texture": "#alembic_plate", "uv": [ 1.5, 3.5, 12.5, 4.5 ] },
+				"west": { "texture": "#alembic_plate", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
+				"up": { "texture": "#alembic_plate", "uv": [ 1.5, 6.0, 12.5, 7.0 ] },
+				"down": { "texture": "#alembic_plate", "uv": [ 0.5, 4.5, 11.5, 5.5 ] }
+			}
+		},
+		{
+			"name": "bubbler",
+			"from": [ 7.5001, 0.4, 7.9 ], 
+			"to": [ 8.5001, 1.4, 11.9 ], 
+			"rotationOrigin": [ 7.5, 0.4, 7.9 ],
+			"faces": {
+				"north": { "texture": "#alembic_plate", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
+				"east": { "texture": "#alembic_plate", "uv": [ 5.0, 8.0, 9.0, 9.0 ] },
+				"south": { "texture": "#alembic_plate", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
+				"west": { "texture": "#alembic_plate", "uv": [ 3.5, 6.0, 7.5, 7.0 ] },
+				"up": { "texture": "#alembic_plate", "uv": [ 3.5, 4.5, 4.5, 8.5 ] },
+				"down": { "texture": "#alembic_plate", "uv": [ 6.0, 4.5, 7.0, 8.5 ] }
+			}
+		},
+		{
+			"name": "chamber",
+			"from": [ 5.0, 0.01, 5.0 ], 
+			"to": [ 5.5, 7.01, 11.0 ], 
+			"renderPass": 1,
+			"rotationOrigin": [ 5.0, 0.1, 5.0 ],
+			"faces": {
+				"north": { "texture": "#alembic_chamber", "uv": [ 15.0, 8.5, 15.5, 15.5 ], "autoUv": false },
+				"east": { "texture": "#alembic_chamber", "uv": [ 9.0, 8.5, 15.0, 15.5 ] },
+				"south": { "texture": "#alembic_chamber", "uv": [ 8.5, 8.5, 9.0, 15.5 ] },
+				"west": { "texture": "#alembic_chamber", "uv": [ 9.0, 8.5, 15.0, 15.5 ] },
+				"up": { "texture": "#alembic_chamber", "uv": [ 9.0, 9.0, 9.5, 15.0 ], "windMode": [-1,-1,-1,-1] },
+				"down": { "texture": "#alembic_chamber", "uv": [ 9.0, 9.0, 9.5, 15.0 ] }
+			}
+		},
+		{
+			"name": "spout",
+			"from": [ 7.5, 0.5, 3.5 ], 
+			"to": [ 8.5, 1.5, 5.5 ], 
+			"rotationOrigin": [ 7.5, 0.5, 3.5 ],
+			"rotationX": -22.5,
+			"faces": {
+				"north": { "texture": "#alembic_plate", "uv": [ 2.0, 2.5, 3.0, 3.5 ] },
+				"east": { "texture": "#alembic_plate", "uv": [ 1.5, 3.5, 3.5, 4.5 ] },
+				"south": { "texture": "#alembic_plate", "uv": [ 3.0, 5.5, 4.0, 6.5 ] },
+				"west": { "texture": "#alembic_plate", "uv": [ 3.5, 5.5, 5.5, 6.5 ] },
+				"up": { "texture": "#alembic_plate", "uv": [ 3.0, 8.0, 4.0, 10.0 ] },
+				"down": { "texture": "#alembic_plate", "uv": [ 2.0, 4.5, 3.0, 6.5 ] }
+			}
+		},
+		{
+			"name": "side-tube",
+			"from": [ 8.5001, 9.9604, 15.3172 ], 
+			"to": [ 17.0001, 10.9604, 16.3172 ], 
+			"rotationOrigin": [ 8.5, 9.9604, 15.3129 ],
+			"rotationY": -89.98,
+			"faces": {
+				"north": { "texture": "#alembic_plate", "uv": [ 1.5, 4.0, 10.0, 5.0 ] },
+				"east": { "texture": "#alembic_plate", "uv": [ 2.0, 1.5, 3.0, 2.5 ] },
+				"south": { "texture": "#alembic_plate", "uv": [ 3.5, 7.5, 12.0, 8.5 ] },
+				"west": { "texture": "#alembic_plate", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
+				"up": { "texture": "#alembic_plate", "uv": [ 3.5, 3.0, 12.0, 4.0 ] },
+				"down": { "texture": "#alembic_plate", "uv": [ 3.0, 6.5, 11.5, 7.5 ] }
+			}
+		},
+		{
+			"name": "chamber6",
+			"from": [ 10.5, 0.01, 5.0 ], 
+			"to": [ 11.0, 7.01, 11.0 ], 
+			"renderPass": 1,
+			"rotationOrigin": [ 10.5, 0.1, 5.0 ],
+			"faces": {
+				"north": { "texture": "#alembic_chamber", "uv": [ 15.0, 8.5, 15.5, 15.5 ], "autoUv": false },
+				"east": { "texture": "#alembic_chamber", "uv": [ 9.0, 8.5, 15.0, 15.5 ] },
+				"south": { "texture": "#alembic_chamber", "uv": [ 14.5, 8.5, 15.0, 15.5 ] },
+				"west": { "texture": "#alembic_chamber", "uv": [ 9.0, 8.5, 15.0, 15.5 ] },
+				"up": { "texture": "#alembic_chamber", "uv": [ 9.0, 9.0, 9.5, 15.0 ] },
+				"down": { "texture": "#alembic_chamber", "uv": [ 9.0, 9.0, 9.5, 15.0 ] }
+			}
+		},
+		{
+			"name": "chamber7",
+			"from": [ 5.5, 0.01, 5.0 ], 
+			"to": [ 10.5, 7.01, 5.5 ], 
+			"renderPass": 1,
+			"rotationOrigin": [ 5.5, 0.1, 5.0 ],
+			"faces": {
+				"north": { "texture": "#alembic_chamber", "uv": [ 9.0, 8.5, 15.0, 15.5 ], "autoUv": false },
+				"east": { "texture": "#alembic_chamber", "uv": [ 9.0, 8.5, 9.5, 15.5 ] },
+				"south": { "texture": "#alembic_chamber", "uv": [ 9.0, 8.5, 14.0, 15.5 ] },
+				"west": { "texture": "#alembic_chamber", "uv": [ 9.0, 8.5, 9.5, 15.5 ] },
+				"up": { "texture": "#alembic_chamber", "uv": [ 9.0, 9.0, 14.0, 9.5 ] },
+				"down": { "texture": "#alembic_chamber", "uv": [ 9.0, 9.0, 14.0, 9.5 ] }
+			}
+		},
+		{
+			"name": "chamber8",
+			"from": [ 5.5, 0.01, 10.5 ], 
+			"to": [ 10.5, 7.01, 11.0 ], 
+			"renderPass": 1,
+			"rotationOrigin": [ 5.5, 0.1, 10.5 ],
+			"faces": {
+				"north": { "texture": "#alembic_chamber", "uv": [ 9.0, 8.5, 15.0, 15.5 ], "autoUv": false },
+				"east": { "texture": "#alembic_chamber", "uv": [ 9.0, 8.5, 9.5, 15.5 ] },
+				"south": { "texture": "#alembic_chamber", "uv": [ 9.0, 8.5, 14.0, 15.5 ] },
+				"west": { "texture": "#alembic_chamber", "uv": [ 9.0, 8.5, 9.5, 15.5 ] },
+				"up": { "texture": "#alembic_chamber", "uv": [ 9.0, 9.0, 14.0, 9.5 ] },
+				"down": { "texture": "#alembic_chamber", "uv": [ 9.0, 9.0, 14.0, 9.5 ] }
+			}
+		},
+		{
+			"name": "chamber9",
+			"from": [ 5.5, 0.01, 5.5 ], 
+			"to": [ 10.5, 0.51, 10.5 ], 
+			"renderPass": 1,
+			"rotationOrigin": [ 5.5, 0.1, 5.5 ],
+			"faces": {
+				"north": { "texture": "#alembic_chamber", "uv": [ 15.0, 8.5, 15.5, 15.5 ], "autoUv": false },
+				"east": { "texture": "#alembic_chamber", "uv": [ 9.0, 8.5, 14.0, 9.0 ] },
+				"south": { "texture": "#alembic_chamber", "uv": [ 8.5, 8.5, 13.5, 9.0 ] },
+				"west": { "texture": "#alembic_chamber", "uv": [ 9.0, 8.5, 14.0, 9.0 ] },
+				"up": { "texture": "#alembic_chamber", "uv": [ 9.5, 9.5, 14.5, 14.5 ] },
+				"down": { "texture": "#alembic_chamber", "uv": [ 9.0, 9.0, 14.0, 14.0 ] }
+			}
+		}
+	]}

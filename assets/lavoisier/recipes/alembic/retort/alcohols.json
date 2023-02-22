@@ -52,7 +52,7 @@
 			"type": "item",
 			"code": "game:waterportion",
 			"stackSize": 9
-		}
+		},
 	},
 	{
 		"code": "distillingmeadspirit",

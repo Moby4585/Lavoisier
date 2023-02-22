@@ -1,0 +1,52 @@
+[
+	{
+		"code": "makingnitricacid",
+		"setup": [ "alembicboilingflask", "alembiccomponent-catalyser", "alembiccomponent-reactionchamber", "alembicretortneck" ],
+		"ticksPerItem": 10,
+		"liquidInput": {
+			"type": "item",
+			"code": "chemistrylib:ammoniaportion",
+			"stackSize": 2
+		},
+		"solidInput": {
+			"type": "item",
+			"code": "game:quicklime",
+			"stackSize": 1
+		},
+		"product": {
+			"type": "item",
+			"code": "chemistrylib:nitricacidportion",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 1
+		},
+		"solidByproduct": {
+			"type": "item",
+			"code": "game:compost",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "makingammonia",
+		"setup": [ "alembicboilingflask", "alembiccomponent-refluxvertical" ],
+		"ticksPerItem": 10,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 2
+		},
+		"solidInput": {
+			"type": "item",
+			"code": "game:compost",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "chemistrylib:ammoniaportion",
+			"stackSize": 1
+		}
+	}
+]

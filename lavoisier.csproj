@@ -67,6 +67,7 @@
     <Compile Include="src\util\RecipeSystem.cs" />
     <Content Include="assets\lavoisier\blocktypes\alembic\boilingflask.json" />
     <Content Include="assets\lavoisier\shapes\block\alembic\boiler.json" />
+    <Content Include="assets\lavoisier\sounds\effect\bubbling.ogg" />
     <Content Include="assets\lavoisier\textures\block\alembic\alembic_chamber.png" />
     <Content Include="assets\lavoisier\textures\block\alembic\alembic_condenser.png" />
     <Content Include="assets\lavoisier\textures\block\alembic\alembic_plate.png" />
@@ -81,14 +82,15 @@
   <ItemGroup>
     <Content Include="assets\lavoisier\blocktypes\alembic\component.json" />
     <Content Include="assets\lavoisier\blocktypes\alembic\retortneck.json" />
-    <None Include="assets\lavoisier\blocktypes\alembic\condenser.json" />
     <None Include="assets\lavoisier\lang\en.json" />
+    <None Include="assets\lavoisier\recipes\alembic\retort\chemistrylib.json" />
     <None Include="assets\lavoisier\recipes\alembic\retort\alcohols.json" />
     <None Include="assets\lavoisier\recipes\grid\components.json" />
     <None Include="assets\lavoisier\recipes\grid\retortneck.json" />
     <None Include="assets\lavoisier\recipes\grid\boilingflask.json" />
     <None Include="assets\lavoisier\shapes\block\alembic\catalyser.json" />
     <None Include="assets\lavoisier\shapes\block\alembic\condenser.json" />
+    <None Include="assets\lavoisier\shapes\block\alembic\dissolver.json" />
     <None Include="assets\lavoisier\shapes\block\alembic\reactionchamber.json" />
     <None Include="assets\lavoisier\shapes\block\alembic\refluxvertical.json" />
     <None Include="assets\lavoisier\shapes\block\alembic\retortneck.json" />
@@ -103,4 +105,9 @@ copy "$(TargetPath)" "$(ProjectDir)"
 copy "$(TargetDir)\$(TargetName).pdb" "$(ProjectDir)" 
     </PostBuildEvent>
   </PropertyGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties assets_4lavoisier_4blocktypes_4alembic_4component_1json__JsonSchema="" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

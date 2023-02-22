@@ -32,6 +32,9 @@ namespace lavoisier
 
         public IAlembicEndContainer alembicEndContainer;
 
+        public AssetLocation bubbleSound = new AssetLocation("lavoisier", "sounds/effect/bubbling");
+        public AssetLocation tickSound = new AssetLocation("game", "tick");
+
         // Inventory : 0 - liquide, 1 - solide, 2 - lampe
 
         public override void Initialize(ICoreAPI api)
@@ -97,6 +100,8 @@ namespace lavoisier
             else if (!inventory[2].Empty)// Handle reaction, only with oil lamp present
             {
                 MarkDirty(true);
+
+                Api.World.PlaySoundAt(bubbleSound, Pos.X, Pos.Y, Pos.Z, randomizePitch: true) ;
 
                 RetortRecipe recipe = RecipeSystem.matchRecipeRetort(Api.World, inventory[0].Itemstack, inventory[1].Itemstack, GetApparatusComposition().ToArray(), alembicEndContainer);
 
@@ -242,7 +247,10 @@ namespace lavoisier
                 {
                     inventory[2].TryPutInto(Api.World, byPlayer.InventoryManager.ActiveHotbarSlot, 1);
                     (byPlayer as IClientPlayer)?.TriggerFpAnimation(EnumHandInteract.HeldItemInteract);
-                    
+
+                    AssetLocation sound = inventory[2].Itemstack?.Block?.Sounds?.Place;
+                    Api.World.PlaySoundAt(sound != null ? sound : new AssetLocation("sounds/player/build"), byPlayer.Entity, byPlayer, true, 16);
+
                 }
                 else if (!inventory[1].Empty)
                 {
@@ -260,7 +268,9 @@ namespace lavoisier
                         {
                             byPlayer.InventoryManager.ActiveHotbarSlot.TryPutInto(Api.World, inventory[2], 1);
                             (byPlayer as IClientPlayer)?.TriggerFpAnimation(EnumHandInteract.HeldItemInteract);
-                            
+
+                            AssetLocation sound = hotbarSlot.Itemstack?.Block?.Sounds?.Place;
+                            Api.World.PlaySoundAt(sound != null ? sound : new AssetLocation("sounds/player/build"), byPlayer.Entity, byPlayer, true, 16);
                         }
 
                         return true;

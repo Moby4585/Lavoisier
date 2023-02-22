@@ -19,7 +19,7 @@ namespace lavoisier
 
         //public override bool AllowHeldLiquidTransfer => true;
 
-        //public AssetLocation tickSound = new AssetLocation("game", "tick");
+        //public AssetLocation bubbleSound = new AssetLocation("game", "effect/bubbling");
 
         public override float CapacityLitres => 3f;
 
@@ -96,7 +96,7 @@ namespace lavoisier
                 RetortRecipe rec;
                 if ((rec = RecipeSystem.matchRecipeRetort(world, (be.Inventory[0]?.Itemstack) ?? null, (be.Inventory[1]?.Itemstack) ?? null, setup)) != null) {
                     info += be.isReacting ? "\n\nCreating: " : "\n\nWill create: ";
-                    info += Lang.Get("{0}", rec.product.ResolvedItemstack.GetName());
+                    info += Lang.Get("{0}", rec.product?.ResolvedItemstack.GetName() ?? "Byproducts");
 
                     if (be.Inventory[2].Empty) info += "\nAdd an oil lamp to " + (be.isReacting ? "resume" : "start") + " reacting";
                 }
