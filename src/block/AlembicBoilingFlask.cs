@@ -80,9 +80,10 @@ namespace lavoisier
                     }
                     info += "\n" + Lang.Get("{0}x{1}", be.Inventory[1].Itemstack.StackSize, be.Inventory[1].Itemstack.GetName());
                 }
+                //if (!be.Inventory[0].Empty) info += be.Inventory[0].Itemstack.Collectible.Code;
                 if (!be.Inventory[2].Empty)
                 {
-                    //info += ("\nHas oil lamp");
+                    info += ("\nHas oil lamp");
                     //info += "\n" + be.Inventory[2].Itemstack.Collectible.Code.ToString();
                 }
 
@@ -94,7 +95,7 @@ namespace lavoisier
 
                 string[] setup = be.GetApparatusComposition().ToArray<string>();
                 RetortRecipe rec;
-                if ((rec = RecipeSystem.matchRecipeRetort(world, (be.Inventory[0]?.Itemstack) ?? null, (be.Inventory[1]?.Itemstack) ?? null, setup, be.alembicEndContainer)) != null) {
+                if ((rec = RecipeSystem.matchRecipeRetort(world, (be.Inventory[0]?.Itemstack) ?? null, (be.Inventory[1]?.Itemstack) ?? null, setup, be.alembicEndContainer ?? null)) != null) {
                     info += be.isReacting ? "\n\nCreating: " : "\n\nWill create: ";
                     info += Lang.Get("{0}", rec.product?.ResolvedItemstack.GetName() ?? "Byproducts");
 

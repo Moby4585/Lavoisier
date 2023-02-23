@@ -195,7 +195,8 @@ namespace lavoisier
 
         public string getCustomItem()
         {
-            return inventory[0].Itemstack?.Collectible.Code.ToString() ?? "";
+            if (!inventory[0].Empty) return inventory[0].Itemstack.Collectible.Code.ToString() + "+";
+            return "";
         }
 
         public void stopDistilling()

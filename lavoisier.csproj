@@ -88,6 +88,7 @@
     <None Include="assets\lavoisier\lang\en.json" />
     <None Include="assets\lavoisier\recipes\alembic\retort\chemistrylib.json" />
     <None Include="assets\lavoisier\recipes\alembic\retort\alcohols.json" />
+    <None Include="assets\lavoisier\recipes\grid\dissolver.json" />
     <None Include="assets\lavoisier\recipes\grid\components.json" />
     <None Include="assets\lavoisier\recipes\grid\retortneck.json" />
     <None Include="assets\lavoisier\recipes\grid\boilingflask.json" />

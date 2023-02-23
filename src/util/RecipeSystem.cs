@@ -119,7 +119,7 @@ namespace lavoisier
             }
             if (container != null)
             {
-                recipeKey += container.getCustomItem() + "+"; // Used to handle the bubbler's content, for instance
+                recipeKey += container.getCustomItem(); // Used to handle the bubbler's content, for instance
             }
 
             if (retortRecipesDic.ContainsKey(recipeKey))

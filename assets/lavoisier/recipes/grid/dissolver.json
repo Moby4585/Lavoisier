@@ -29,7 +29,7 @@
   },
   "output": {
     "type": "block",
-    "code": "lavoisier:alembicdissolver",
+    "code": "lavoisier:alembicdissolver-north",
     "quantity": 1
   }
 }
