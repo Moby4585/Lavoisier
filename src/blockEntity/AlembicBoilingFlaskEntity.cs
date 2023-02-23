@@ -392,7 +392,7 @@ namespace lavoisier
             amountReacted = tree.TryGetInt("amountReacted") ?? 0;
             amountToReact = tree.TryGetInt("amountToReact") ?? -1;
 
-            apparatusComposition = GetApparatusComposition();
+            
             //reactingRecipe = JsonUtil.FromString<RetortRecipe>(tree.GetString("reactingRecipe", ""));
 
             base.FromTreeAttributes(tree, worldAccessForResolve);
