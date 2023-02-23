@@ -46,6 +46,8 @@ namespace lavoisier
             loadMesh();
 
             RegisterGameTickListener(OnGameTick, 50);
+
+            apparatusComposition = GetApparatusComposition();
         }
 
         
@@ -216,6 +218,7 @@ namespace lavoisier
                 }
                 MarkDirty(true);
             }
+            apparatusComposition = GetApparatusComposition();
         }
 
         public override void GetBlockInfo(IPlayer forPlayer, StringBuilder dsc)
@@ -389,6 +392,7 @@ namespace lavoisier
             amountReacted = tree.TryGetInt("amountReacted") ?? 0;
             amountToReact = tree.TryGetInt("amountToReact") ?? -1;
 
+            apparatusComposition = GetApparatusComposition();
             //reactingRecipe = JsonUtil.FromString<RetortRecipe>(tree.GetString("reactingRecipe", ""));
 
             base.FromTreeAttributes(tree, worldAccessForResolve);
