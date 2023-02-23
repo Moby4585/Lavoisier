@@ -86,6 +86,7 @@
     <Content Include="assets\lavoisier\blocktypes\alembic\retortneck.json" />
     <Content Include="assets\lavoisier\blocktypes\alembic\dissolver.json" />
     <None Include="assets\lavoisier\lang\en.json" />
+    <None Include="assets\lavoisier\recipes\alembic\retort\waterwater.json" />
     <None Include="assets\lavoisier\recipes\alembic\retort\chemistrylib.json" />
     <None Include="assets\lavoisier\recipes\alembic\retort\alcohols.json" />
     <None Include="assets\lavoisier\recipes\grid\dissolver.json" />

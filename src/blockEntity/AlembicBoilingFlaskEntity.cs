@@ -35,6 +35,8 @@ namespace lavoisier
         public AssetLocation bubbleSound = new AssetLocation("lavoisier", "sounds/effect/bubbling");
         public AssetLocation tickSound = new AssetLocation("game", "tick");
 
+        public List<string> apparatusComposition = new List<string>();
+
         // Inventory : 0 - liquide, 1 - solide, 2 - lampe
 
         public override void Initialize(ICoreAPI api)
@@ -61,7 +63,7 @@ namespace lavoisier
 
             if (!isReacting) // Check recipes, start reaction
             {
-                _ = GetApparatusComposition(); // Used to set alembicEndContainer beforehand maybe? Apparently it's needed I guess?
+                apparatusComposition = GetApparatusComposition(); // Used to set alembicEndContainer beforehand maybe? Apparently it's needed I guess?
 
                 RetortRecipe recipe = RecipeSystem.matchRecipeRetort(Api.World, inventory[0].Itemstack, inventory[1].Itemstack, GetApparatusComposition().ToArray(), alembicEndContainer);
 

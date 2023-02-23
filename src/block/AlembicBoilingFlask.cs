@@ -93,7 +93,7 @@ namespace lavoisier
                     info += "\n" + ((int)((float)be.amountReacted / (float)be.amountToReact * 100f)).ToString() + "% reacted";
                 }
 
-                string[] setup = be.GetApparatusComposition().ToArray<string>();
+                string[] setup = be.apparatusComposition.ToArray<string>();
                 RetortRecipe rec;
                 if ((rec = RecipeSystem.matchRecipeRetort(world, (be.Inventory[0]?.Itemstack) ?? null, (be.Inventory[1]?.Itemstack) ?? null, setup, be.alembicEndContainer ?? null)) != null) {
                     info += be.isReacting ? "\n\nCreating: " : "\n\nWill create: ";

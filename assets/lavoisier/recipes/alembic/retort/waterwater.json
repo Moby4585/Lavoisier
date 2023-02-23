@@ -1,0 +1,17 @@
+[
+	{
+		"code": "waterwaterforsoundeffect",
+		"setup": [ "alembicboilingflask", "alembiccomponent-refluxvertical" ],
+		"ticksPerItem": 1,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 1
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 1
+		}
+	}
+]
