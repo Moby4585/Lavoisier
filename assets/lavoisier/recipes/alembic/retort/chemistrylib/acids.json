@@ -45,26 +45,6 @@
 		}
 	},
 	{
-		"code": "ammoniacompost",
-		"setup": [ "alembicboilingflask", "alembicdissolver" ],
-		"ticksPerItem": 50,
-		"solidInput": {
-			"type": "item",
-			"code": "game:compost",
-			"stackSize": 2
-		},
-		"endInput": {
-			"type": "item",
-			"code": "game:waterportion",
-			"stackSize": 1
-		},
-		"liquidByproduct": {
-			"type": "item",
-			"code": "chemistrylib:ammoniaportion",
-			"stackSize": 1
-		}
-	},
-	{
 		"code": "hydrochloricsalt",
 		"setup": [ "alembicboilingflask", "alembicdissolver" ],
 		"ticksPerItem": 20,
@@ -155,12 +135,27 @@
 		},
 		"endInput": {
 			"type": "item",
-			"code": "game:waterportion",
+			"code": "game:water",
 			"stackSize": 1
 		},
 		"product": {
 			"type": "item",
 			"code": "chemistrylib:mineralacidportion-sulfuric",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "aceticaciddistillation",
+		"setup": [ "alembicboilingflask", "alembiccomponent-refluxvertical" ],
+		"ticksPerItem": 40,
+		"liquidInput": {
+			"type": "item",
+			"code": "game:vinegarportion",
+			"stackSize": 10
+		},
+		"liquidByproduct": {
+			"type": "item",
+			"code": "chemistrylib:aceticacidportion",
 			"stackSize": 1
 		}
 	}

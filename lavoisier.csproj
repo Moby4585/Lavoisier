@@ -85,7 +85,10 @@
     <Content Include="assets\lavoisier\blocktypes\alembic\component.json" />
     <Content Include="assets\lavoisier\blocktypes\alembic\retortneck.json" />
     <Content Include="assets\lavoisier\blocktypes\alembic\dissolver.json" />
-    <None Include="assets\lavoisier\recipes\alembic\retort\chemistrylib\chemistrylib.json" />
+    <None Include="assets\lavoisier\recipes\alembic\retort\chemistrylib\organic.json" />
+    <None Include="assets\lavoisier\recipes\alembic\retort\chemistrylib\elements.json" />
+    <None Include="assets\lavoisier\recipes\alembic\retort\chemistrylib\alkali.json" />
+    <None Include="assets\lavoisier\recipes\alembic\retort\chemistrylib\acids.json" />
     <None Include="assets\lavoisier\lang\en.json" />
     <None Include="assets\lavoisier\recipes\alembic\retort\waterwater.json" />
     <None Include="assets\lavoisier\recipes\alembic\retort\alcohols.json" />
@@ -102,7 +105,6 @@
     <None Include="assets\lavoisier\shapes\block\alembic\retortneck.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\lavoisier\recipes\compatibility\chemistrylib\alembic\retort\" />
     <Folder Include="src\blockEntityBehaviour\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

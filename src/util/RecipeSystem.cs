@@ -88,7 +88,15 @@ namespace lavoisier
                     key += recipe.endInput.ResolvedItemstack.Collectible.Code + "+";
                     hasAtLeastOneIngredient = true;
                 }
-                if ((recipe.product?.Resolve(world, "Retort product") ?? true)
+
+                bool hasResolvedEverything = true;
+                if (recipe.liquidInput != null) hasResolvedEverything &= recipe.liquidInput.Resolve(world, "Retort liquid input");
+                if (recipe.solidInput != null) hasResolvedEverything &= recipe.solidInput.Resolve(world, "Retort solid input");
+                if (recipe.endInput != null) hasResolvedEverything &= recipe.endInput.Resolve(world, "Retort end input");
+                if (recipe.solidByproduct != null) hasResolvedEverything &= recipe.solidByproduct.Resolve(world, "Retort solid byproduct");
+                if (recipe.liquidByproduct != null) hasResolvedEverything &= recipe.liquidByproduct.Resolve(world, "Retort liquid byproduct");
+
+                if (((recipe.product?.Resolve(world, "Retort product") ?? true) && hasResolvedEverything)
                     /*&& (recipe.liquidByproduct?.Resolve(world, "Retort liquid byproduct") ?? true)
                     && (recipe.solidByproduct?.Resolve(world, "Retort solid byproduct") ?? true)*/)
                 {

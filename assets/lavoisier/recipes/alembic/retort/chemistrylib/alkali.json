@@ -1,0 +1,67 @@
+[
+	{
+		"code": "ammoniacompost",
+		"setup": [ "alembicboilingflask", "alembicdissolver" ],
+		"ticksPerItem": 50,
+		"solidInput": {
+			"type": "item",
+			"code": "game:compost",
+			"stackSize": 2
+		},
+		"endInput": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 1
+		},
+		"product": {
+			"type": "item",
+			"code": "chemistrylib:ammoniaportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "ammonialeather",
+		"setup": [ "alembicboilingflask", "alembicdissolver" ],
+		"ticksPerItem": 50,
+		"solidInput": {
+			"type": "item",
+			"code": "game:leather",
+			"stackSize": 1
+		},
+		"endInput": {
+			"type": "item",
+			"code": "game:waterportion",
+			"stackSize": 1
+		},
+		"product": {
+			"type": "item",
+			"code": "chemistrylib:ammoniaportion",
+			"stackSize": 1
+		}
+	},
+	{
+		"code": "solvayprocess",
+		"setup": [ "alembicboilingflask", "alembicdissolver" ],
+		"ticksPerItem": 60,
+		"solidInput": {
+			"type": "item",
+			"code": "game:charcoal",
+			"stackSize": 1
+		},
+		"liquidInput": {
+			"type": "item",
+			"code": "chemistrylib:ammoniaportion",
+			"stackSize": 1
+		},
+		"endInput": {
+			"type": "item",
+			"code": "game:brineportion",
+			"stackSize": 1
+		},
+		"product": {
+			"type": "item",
+			"code": "chemistrylib:sodaash",
+			"stackSize": 1
+		}
+	}
+]

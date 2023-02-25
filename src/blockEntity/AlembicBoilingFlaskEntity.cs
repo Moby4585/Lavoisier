@@ -47,7 +47,7 @@ namespace lavoisier
 
             RegisterGameTickListener(OnGameTick, 50);
 
-            apparatusComposition = GetApparatusComposition();
+            //apparatusComposition = GetApparatusComposition();
         }
 
         
@@ -81,7 +81,7 @@ namespace lavoisier
                     if (!inventory[1].Empty)
                     {
                         
-                        if (amountToReact != -1)
+                        if (!inventory[0].Empty)
                         {
                             isStoechiometric &= inventory[1].Itemstack.StackSize % recipe.solidInput.ResolvedItemstack.StackSize == 0
                                 && inventory[1].Itemstack.StackSize / recipe.solidInput.ResolvedItemstack.StackSize == amountToReact;
@@ -89,7 +89,7 @@ namespace lavoisier
                         else
                         {
                             isStoechiometric &= inventory[1].Itemstack.StackSize % recipe.solidInput.ResolvedItemstack.StackSize == 0;
-                            amountToReact = inventory[1].Itemstack.StackSize / recipe.solidInput.ResolvedItemstack.StackSize;
+                            amountToReact = (int)inventory[1].Itemstack.StackSize / recipe.solidInput.ResolvedItemstack.StackSize;
                         }
                     }
                     isStoechiometric &= alembicEndContainer?.checkStoechiometry(recipe) ?? true;
