@@ -79,7 +79,7 @@ namespace lavoisier
                         info = "Contents:";
                     }
                     info += "\n" + Lang.Get("{0}x{1}", be.Inventory[1].Itemstack.StackSize, be.Inventory[1].Itemstack.GetName());
-                    info += " " + be.Inventory[1].Itemstack.Collectible.Code.ToString();
+                    //info += " " + be.Inventory[1].Itemstack.Collectible.Code.ToString();
                 }
                 //if (!be.Inventory[0].Empty) info += be.Inventory[0].Itemstack.Collectible.Code;
                 if (!be.Inventory[2].Empty)
@@ -108,13 +108,13 @@ namespace lavoisier
                 if ((rtnEntity = be.alembicEndContainer as AlembicRetortNeckEntity) != null)
                 {
                     info += "\n" + ((rtnEntity.Inventory[0].Itemstack?.Collectible as BlockLiquidContainerBase)?.GetContent(rtnEntity.Inventory[0].Itemstack)?.Collectible.Code.ToString()) ?? "";
-                }*/
+                }
                 info += "\nisReacting: " + be.isReacting.ToString() + " amountReacted: " + be.amountReacted.ToString() + " amountToReact: " + be.amountToReact.ToString();
                 if (be.reactingRecipe != null) {
                     info += "\n\nLiquidInput: " + be.reactingRecipe.liquidInput?.ResolvedItemstack?.StackSize;
                     info += "\nSolidInput: " + be.reactingRecipe.solidInput?.ResolvedItemstack?.StackSize;
                     info += "\nOutput: " + be.reactingRecipe.product?.ResolvedItemstack?.StackSize;
-                }
+                }*/
             }
 
             return info;
