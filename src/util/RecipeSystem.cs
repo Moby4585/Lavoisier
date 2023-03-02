@@ -59,7 +59,7 @@ namespace lavoisier
             }
 
             api.World.Logger.Event("{0} retort recipes loaded", recipeQuantity);
-            api.World.Logger.StoryEvent(Lang.Get("lavoisier:recipesloaded"));
+            //api.World.Logger.StoryEvent(Lang.Get("lavoisier:recipesloaded"));
         }
 
         public static void RegisterRetortRecipes(IWorldAccessor world)

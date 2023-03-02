@@ -252,8 +252,8 @@ namespace lavoisier
         {
             //if (!recipe.product.Resolve(Api.World, "Resolving retort neck product")) return false;
 
-            AssetLocation sound = new AssetLocation("game", "sounds/environment/drip2");
-            Api.World.PlaySoundAt(sound, Pos.X, Pos.Y, Pos.Z, randomizePitch: true);
+            //AssetLocation sound = new AssetLocation("game", "sounds/environment/drip2");
+            //Api.World.PlaySoundAt(sound, Pos.X, Pos.Y, Pos.Z, randomizePitch: true);
 
             if (Api.Side != EnumAppSide.Server) { return false; }
 
@@ -267,6 +267,7 @@ namespace lavoisier
                 {
                     BlockLiquidContainerBase bucket = bucketStack.Collectible as BlockLiquidContainerBase;
                     int litresTransferred = (inventory[0].Itemstack.Collectible as BlockLiquidContainerBase).TryPutLiquid(inventory[0].Itemstack, fromStack, 9999f);
+
                     if (litresTransferred > 0f )
                     {
                         /*ItemStack content = (Inventory[0].Itemstack.Collectible as BlockLiquidContainerBase).GetContent(Inventory[0].Itemstack);

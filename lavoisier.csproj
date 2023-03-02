@@ -74,6 +74,7 @@
     <Content Include="assets\lavoisier\textures\block\alembic\alembic_condenser.png" />
     <Content Include="assets\lavoisier\textures\block\alembic\alembic_plate.png" />
     <Content Include="assets\lavoisier\textures\block\alembic\alembic_round.png" />
+    <Content Include="modicon.png" />
     <Content Include="modinfo.json" />
     <Compile Include="src\blockEntity\AlembicRetortNeckEntity.cs" />
     <Compile Include="src\block\AlembicRetortNeck.cs" />
@@ -85,13 +86,9 @@
     <Content Include="assets\lavoisier\blocktypes\alembic\component.json" />
     <Content Include="assets\lavoisier\blocktypes\alembic\retortneck.json" />
     <Content Include="assets\lavoisier\blocktypes\alembic\dissolver.json" />
-    <None Include="assets\lavoisier\recipes\alembic\retort\chemistrylib\organic.json" />
-    <None Include="assets\lavoisier\recipes\alembic\retort\chemistrylib\elements.json" />
-    <None Include="assets\lavoisier\recipes\alembic\retort\chemistrylib\alkali.json" />
-    <None Include="assets\lavoisier\recipes\alembic\retort\chemistrylib\acids.json" />
     <None Include="assets\lavoisier\lang\en.json" />
-    <None Include="assets\lavoisier\recipes\alembic\retort\waterwater.json" />
     <None Include="assets\lavoisier\recipes\alembic\retort\alcohols.json" />
+    <None Include="assets\lavoisier\recipes\alembic\retort\waterwater.json" />
     <None Include="assets\lavoisier\recipes\grid\dissolver.json" />
     <None Include="assets\lavoisier\recipes\grid\components.json" />
     <None Include="assets\lavoisier\recipes\grid\retortneck.json" />
