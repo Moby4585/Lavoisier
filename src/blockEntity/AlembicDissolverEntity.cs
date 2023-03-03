@@ -38,7 +38,11 @@ namespace lavoisier
             {
                 currentMesh = GenMesh();
                 MarkDirty(true);
-                RegisterGameTickListener(clientTick, 200, Api.World.Rand.Next(50));
+                RegisterGameTickListener(clientTick, 200);
+            }
+            if (Api.Side == EnumAppSide.Server)
+            {
+                //RegisterGameTickListener(serverTick, 200);
             }
 
             Matrixf mat = new Matrixf();
@@ -49,6 +53,18 @@ namespace lavoisier
             ;
 
             spoutpos = mat.TransformVector(new Vec4f(0.5f, 0.375f, 0.4375f, 1)).XYZ;
+        }
+
+        private void serverTick(float dt)
+        {
+            if (inventory[0].Empty || (inventory[0].Itemstack?.Collectible.Code.ToString() ?? "_") == (inventory[1].Itemstack?.Collectible.Code.ToString() ?? "-"))
+            {
+                if (inventory[1].Itemstack?.Collectible.IsLiquid() ?? false)
+                {
+                    inventory[1].TryPutInto(Api.World, inventory[0], quantity: 99999);
+                    MarkDirty(true);
+                }
+            }
         }
 
         private void clientTick(float dt)
@@ -72,7 +88,7 @@ namespace lavoisier
 
         void inventory_SlotModified(int slotModified)
         {
-            if (inventory[0].Empty)
+            if (inventory[0].Empty || inventory[0].Itemstack?.Collectible.Code == inventory[1].Itemstack?.Collectible.Code)
             {
                 if (inventory[1].Itemstack?.Collectible.IsLiquid() ?? false) {
                     inventory[1].TryPutInto(Api.World, inventory[0], quantity: 99999);
@@ -181,6 +197,7 @@ namespace lavoisier
                 if (inventory[1].Empty)
                 {
                     inventory[1].Itemstack = fromStack.Clone();
+                    MarkDirty(true);
                 }
                 else if (inventory[1].Itemstack.Collectible == fromStack.Collectible)
                 {
@@ -201,7 +218,15 @@ namespace lavoisier
 
         public void stopDistilling()
         {
+            //inventory[1].MarkDirty();
             lastReceivedDistillate = null;
+            /*if (inventory[0].Empty)
+            {
+                if (inventory[1].Itemstack?.Collectible.IsLiquid() ?? false)
+                {
+                    inventory[1].TryPutInto(Api.World, inventory[0], quantity: 99999);
+                }
+            }*/
             MarkDirty(true);
         }
 

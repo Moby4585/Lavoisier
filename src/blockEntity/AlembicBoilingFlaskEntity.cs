@@ -120,8 +120,8 @@ namespace lavoisier
                 if (recipe != reactingRecipe)
                 {
                     isReacting = false;
-                    alembicEndContainer?.stopDistilling();
                     commitRecipe();
+                    alembicEndContainer?.stopDistilling();
                     return;
                 }
 
