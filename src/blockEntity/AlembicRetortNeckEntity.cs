@@ -244,7 +244,6 @@ namespace lavoisier
         public override void ToTreeAttributes(ITreeAttribute tree)
         {
             base.ToTreeAttributes(tree);
-
             tree.SetItemstack("lastReceivedDistillate", lastReceivedDistillate);
         }
 

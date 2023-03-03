@@ -85,7 +85,7 @@ namespace lavoisier
         {
             ItemSlot handslot = byPlayer.InventoryManager.ActiveHotbarSlot;
 
-            if (handslot.Empty && !inventory[1].Empty)
+            if (handslot.Empty && !inventory[1].Empty && !inventory[1].Itemstack.Collectible.IsLiquid())
             {
                 Api.World.PlaySoundAt(new AssetLocation("game", "sounds/effect/squish1"), byPlayer.Entity, byPlayer, true, 16);
 
