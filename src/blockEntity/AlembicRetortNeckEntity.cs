@@ -265,7 +265,7 @@ namespace lavoisier
                 if (bucketStack.Collectible as BlockLiquidContainerTopOpened != null)
                 {
                     BlockLiquidContainerBase bucket = bucketStack.Collectible as BlockLiquidContainerBase;
-                    int litresTransferred = (inventory[0].Itemstack.Collectible as BlockLiquidContainerBase).TryPutLiquid(inventory[0].Itemstack, fromStack, 9999f);
+                    int litresTransferred = (inventory[0].Itemstack.Collectible as BlockLiquidContainerBase).TryPutLiquid(inventory[0].Itemstack, fromStack, fromStack.StackSize / (BlockLiquidContainerBase.GetContainableProps(fromStack).ItemsPerLitre));
 
                     if (litresTransferred > 0f )
                     {
