@@ -4,7 +4,7 @@
   "name": "Lavoisier",
   "authors": ["Moby_"],
   "description": "Adds a new crafting system based on Lavoisier-era chemistry.",
-  "version": "1.2.6",
+  "version": "1.2.6-pre.1",
   "dependencies": {
     "game": ""
   }
