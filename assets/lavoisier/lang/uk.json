@@ -1,0 +1,13 @@
+{
+  "block-alembicboilingflask": "Круглодонна колба",
+  "block-alembiccomponent-refluxvertical-*": "Ректифікаційна колона",
+  "block-alembiccomponent-reactionchamber-*": "Реакторна камера",
+  "block-alembiccomponent-catalyser-*": "Каталізатор",
+  "block-alembiccomponent-condenser-*": "Конденсатор",
+  "block-alembicretortneck-*": "Горловина реторти",
+  "block-alembicdissolver-*": "Диссольвер",
+  "game:tabname-chemistry": "Хімія",
+  "recipesloaded": "Йде реакція...",
+  "recipesresolved": "Комплексна формула...",
+  "blockinfo-byproducts": "Побічні продукти"
+}
