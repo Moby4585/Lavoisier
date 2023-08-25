@@ -1,0 +1,13 @@
+{
+	"block-alembicboilingflask": "Кипящая колба",
+	"block-alembiccomponent-catalyser-*": "Катализатор",
+	"block-alembiccomponent-condenser-*": "Конденсатор",
+	"block-alembiccomponent-reactionchamber-*": "Реакционная камера",
+	"block-alembiccomponent-refluxvertical-*": "Рефлюксная колонна",
+	"block-alembicdissolver-*": "Диссольвер",
+	"block-alembicretortneck-*": "Горловина реторты",
+	"blockinfo-byproducts": "Побочные продукты",
+	"game:tabname-chemistry": "Химия",
+	"recipesloaded": "Оно реагирует...",
+	"recipesresolved": "Сложные формулы..."
+}
